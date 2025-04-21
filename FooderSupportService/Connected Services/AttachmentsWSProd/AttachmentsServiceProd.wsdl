@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UploadTempAttachmentFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocMimeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocContentBytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTempAttachmentFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadTempAttachmentFileResult" type="tns:AttachedDocUploadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AttachedDocUploadResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="boolFinalResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="newCreatedDocID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFNException" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadTempAttachmentFileWithAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocMimeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActionUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocContentBytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTempAttachmentFileWithAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadTempAttachmentFileWithAuditResult" type="tns:AttachedDocUploadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmTempAttachmentFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmTempAttachmentFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmTempAttachmentFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadConfirmedAttachmentFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocMimeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocContentBytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadConfirmedAttachmentFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadConfirmedAttachmentFileResult" type="tns:AttachedDocUploadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadAttachmentDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadAttachmentDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadAttachmentDocResult" type="tns:AttachedDocDownloadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AttachedDocDownloadResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="boolFinalResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="downloadDocMimeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docContentBytes" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFNException" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN_DocTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN_DocClass" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteAttachemntFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAttachemntFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteAttachemntFileResult" type="tns:AttachedDocDeleteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AttachedDocDeleteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="boolFinalResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFNException" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MoveAttachemntFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="moveParamas" type="tns:MoveDocToNewFNEnvParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MoveDocToNewFNEnvParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Old_FN_Uri" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldFN_UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldFN_Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldFN_ObjectStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Old_FN_DocID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="New_FN_Uri" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewFN_UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewFN_Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewFN_ObjectStoreName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caller_ProjectName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MoveAttachemntFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MoveAttachemntFileResult" type="tns:MoveDocumentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MoveDocumentResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="boolFinalResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="newCreatedDocID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFNException" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="createThumbnail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="originalDocID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="thumbSize" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createThumbnailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createThumbnailResult" type="tns:AttachedDocThumbnailResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AttachedDocThumbnailResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="newCreatedDocID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="boolFinalResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="downloadDocMimeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="thumbContentBytes" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="strFNException" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN_DocTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FN_DocClass" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadAttachmentFileWithProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DocMimeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocContentBytes" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="UPDA_InfrStructure_DocClass_Props" type="tns:UPDA_InfrStructure_DocClass_Props" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UPDA_InfrStructure_DocClass_Props">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strTest1_Prop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTest2_Prop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTest3_Prop" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadAttachmentFileWithPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadAttachmentFileWithPropertiesResult" type="tns:AttachedDocUploadResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadUPDAInfraAttachmentProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadUPDAInfraAttachmentPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadUPDAInfraAttachmentPropertiesResult" type="tns:UPDA_InfrStructure_DocClass_Props" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAttachmentTrackRecord">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddAttachmentTrackRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAttachmentTrackRecordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrackAttachmentRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fnDocId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrackAttachmentRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrackAttachmentRecordsResult" type="tns:ArrayOfFN_ATTCHMNT_SRVC_MNTR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFN_ATTCHMNT_SRVC_MNTR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FN_ATTCHMNT_SRVC_MNTR" nillable="true" type="tns:FN_ATTCHMNT_SRVC_MNTR" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FN_ATTCHMNT_SRVC_MNTR">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="FN_DOC_ID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PROJECT_NAME" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OPERATION_TYPE" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OPERATION_DATE" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="DOC_TITLE" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DOC_MIMETYPE" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DOC_CLASS" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FILE_SIZE" nillable="true" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="FN_USER" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FN_OBJECTSTORE" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetViewAttachmentWebPageUrl">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetViewAttachmentWebPageUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetViewAttachmentWebPageUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrackAttachmentWebPageUrl">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrackAttachmentWebPageUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrackAttachmentWebPageUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadTempAttachmentFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadTempAttachmentFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadTempAttachmentFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadTempAttachmentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadTempAttachmentFileWithAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadTempAttachmentFileWithAudit" />
+  </wsdl:message>
+  <wsdl:message name="UploadTempAttachmentFileWithAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadTempAttachmentFileWithAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmTempAttachmentFileSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmTempAttachmentFile" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmTempAttachmentFileSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmTempAttachmentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadConfirmedAttachmentFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadConfirmedAttachmentFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadConfirmedAttachmentFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadConfirmedAttachmentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAttachmentDocSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadAttachmentDoc" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAttachmentDocSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadAttachmentDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAttachemntFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAttachemntFile" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAttachemntFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAttachemntFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="MoveAttachemntFileSoapIn">
+    <wsdl:part name="parameters" element="tns:MoveAttachemntFile" />
+  </wsdl:message>
+  <wsdl:message name="MoveAttachemntFileSoapOut">
+    <wsdl:part name="parameters" element="tns:MoveAttachemntFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="createThumbnailSoapIn">
+    <wsdl:part name="parameters" element="tns:createThumbnail" />
+  </wsdl:message>
+  <wsdl:message name="createThumbnailSoapOut">
+    <wsdl:part name="parameters" element="tns:createThumbnailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadAttachmentFileWithPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadAttachmentFileWithProperties" />
+  </wsdl:message>
+  <wsdl:message name="UploadAttachmentFileWithPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadAttachmentFileWithPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadUPDAInfraAttachmentPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadUPDAInfraAttachmentProperties" />
+  </wsdl:message>
+  <wsdl:message name="DownloadUPDAInfraAttachmentPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadUPDAInfraAttachmentPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachmentTrackRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAttachmentTrackRecord" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachmentTrackRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAttachmentTrackRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackAttachmentRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrackAttachmentRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackAttachmentRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrackAttachmentRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetViewAttachmentWebPageUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetViewAttachmentWebPageUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetViewAttachmentWebPageUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetViewAttachmentWebPageUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackAttachmentWebPageUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrackAttachmentWebPageUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetTrackAttachmentWebPageUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrackAttachmentWebPageUrlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AttachmentsServiceProdSoap">
+    <wsdl:operation name="UploadTempAttachmentFile">
+      <wsdl:input message="tns:UploadTempAttachmentFileSoapIn" />
+      <wsdl:output message="tns:UploadTempAttachmentFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadTempAttachmentFileWithAudit">
+      <wsdl:input message="tns:UploadTempAttachmentFileWithAuditSoapIn" />
+      <wsdl:output message="tns:UploadTempAttachmentFileWithAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmTempAttachmentFile">
+      <wsdl:input message="tns:ConfirmTempAttachmentFileSoapIn" />
+      <wsdl:output message="tns:ConfirmTempAttachmentFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadConfirmedAttachmentFile">
+      <wsdl:input message="tns:UploadConfirmedAttachmentFileSoapIn" />
+      <wsdl:output message="tns:UploadConfirmedAttachmentFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttachmentDoc">
+      <wsdl:input message="tns:DownloadAttachmentDocSoapIn" />
+      <wsdl:output message="tns:DownloadAttachmentDocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttachemntFile">
+      <wsdl:input message="tns:DeleteAttachemntFileSoapIn" />
+      <wsdl:output message="tns:DeleteAttachemntFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveAttachemntFile">
+      <wsdl:input message="tns:MoveAttachemntFileSoapIn" />
+      <wsdl:output message="tns:MoveAttachemntFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createThumbnail">
+      <wsdl:input message="tns:createThumbnailSoapIn" />
+      <wsdl:output message="tns:createThumbnailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadAttachmentFileWithProperties">
+      <wsdl:input message="tns:UploadAttachmentFileWithPropertiesSoapIn" />
+      <wsdl:output message="tns:UploadAttachmentFileWithPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadUPDAInfraAttachmentProperties">
+      <wsdl:input message="tns:DownloadUPDAInfraAttachmentPropertiesSoapIn" />
+      <wsdl:output message="tns:DownloadUPDAInfraAttachmentPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentTrackRecord">
+      <wsdl:input message="tns:AddAttachmentTrackRecordSoapIn" />
+      <wsdl:output message="tns:AddAttachmentTrackRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentRecords">
+      <wsdl:input message="tns:GetTrackAttachmentRecordsSoapIn" />
+      <wsdl:output message="tns:GetTrackAttachmentRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAttachmentWebPageUrl">
+      <wsdl:input message="tns:GetViewAttachmentWebPageUrlSoapIn" />
+      <wsdl:output message="tns:GetViewAttachmentWebPageUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentWebPageUrl">
+      <wsdl:input message="tns:GetTrackAttachmentWebPageUrlSoapIn" />
+      <wsdl:output message="tns:GetTrackAttachmentWebPageUrlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AttachmentsServiceProdSoap" type="tns:AttachmentsServiceProdSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadTempAttachmentFile">
+      <soap:operation soapAction="http://tempuri.org/UploadTempAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTempAttachmentFileWithAudit">
+      <soap:operation soapAction="http://tempuri.org/UploadTempAttachmentFileWithAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmTempAttachmentFile">
+      <soap:operation soapAction="http://tempuri.org/ConfirmTempAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadConfirmedAttachmentFile">
+      <soap:operation soapAction="http://tempuri.org/UploadConfirmedAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttachmentDoc">
+      <soap:operation soapAction="http://tempuri.org/DownloadAttachmentDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttachemntFile">
+      <soap:operation soapAction="http://tempuri.org/DeleteAttachemntFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveAttachemntFile">
+      <soap:operation soapAction="http://tempuri.org/MoveAttachemntFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createThumbnail">
+      <soap:operation soapAction="http://tempuri.org/createThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAttachmentFileWithProperties">
+      <soap:operation soapAction="http://tempuri.org/UploadAttachmentFileWithProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadUPDAInfraAttachmentProperties">
+      <soap:operation soapAction="http://tempuri.org/DownloadUPDAInfraAttachmentProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentTrackRecord">
+      <soap:operation soapAction="http://tempuri.org/AddAttachmentTrackRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentRecords">
+      <soap:operation soapAction="http://tempuri.org/GetTrackAttachmentRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAttachmentWebPageUrl">
+      <soap:operation soapAction="http://tempuri.org/GetViewAttachmentWebPageUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentWebPageUrl">
+      <soap:operation soapAction="http://tempuri.org/GetTrackAttachmentWebPageUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AttachmentsServiceProdSoap12" type="tns:AttachmentsServiceProdSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadTempAttachmentFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadTempAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTempAttachmentFileWithAudit">
+      <soap12:operation soapAction="http://tempuri.org/UploadTempAttachmentFileWithAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmTempAttachmentFile">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmTempAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadConfirmedAttachmentFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadConfirmedAttachmentFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAttachmentDoc">
+      <soap12:operation soapAction="http://tempuri.org/DownloadAttachmentDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttachemntFile">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAttachemntFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveAttachemntFile">
+      <soap12:operation soapAction="http://tempuri.org/MoveAttachemntFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createThumbnail">
+      <soap12:operation soapAction="http://tempuri.org/createThumbnail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadAttachmentFileWithProperties">
+      <soap12:operation soapAction="http://tempuri.org/UploadAttachmentFileWithProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadUPDAInfraAttachmentProperties">
+      <soap12:operation soapAction="http://tempuri.org/DownloadUPDAInfraAttachmentProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentTrackRecord">
+      <soap12:operation soapAction="http://tempuri.org/AddAttachmentTrackRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentRecords">
+      <soap12:operation soapAction="http://tempuri.org/GetTrackAttachmentRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewAttachmentWebPageUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetViewAttachmentWebPageUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackAttachmentWebPageUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetTrackAttachmentWebPageUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AttachmentsServiceProd">
+    <wsdl:port name="AttachmentsServiceProdSoap" binding="tns:AttachmentsServiceProdSoap">
+      <soap:address location="https://dotnet.mme.gov.qa/AttachmentsWSProd/AttachmentsServiceProd.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AttachmentsServiceProdSoap12" binding="tns:AttachmentsServiceProdSoap12">
+      <soap12:address location="https://dotnet.mme.gov.qa/AttachmentsWSProd/AttachmentsServiceProd.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

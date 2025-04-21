@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0" xmlns:bons1="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="VerifyCustomerMobileResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="xsd:boolean" />
+      <xsd:element name="statusMessage" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="VerifyCustomerMobileRequest">
+    <xsd:sequence>
+      <xsd:element name="QID" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Qatari ID for the customer holding the given mobile number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="mobileNo" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The customer mobile number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

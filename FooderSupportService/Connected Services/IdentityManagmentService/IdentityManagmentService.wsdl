@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="IdentityManagmentService" targetNamespace="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://orcl-wbcntr-int.mme.gov.qa:443/IdentityServiceView/custom/IdentityManagmentService?xsd=1" namespace="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/" />
+    </xsd:schema>
+  </types>
+  <message name="retriveResDateCitizenById">
+    <part name="parameters" element="tns:retriveResDateCitizenById" />
+  </message>
+  <message name="retriveResDateCitizenByIdResponse">
+    <part name="parameters" element="tns:retriveResDateCitizenByIdResponse" />
+  </message>
+  <message name="retrieveCitizenByIdLike">
+    <part name="parameters" element="tns:retrieveCitizenByIdLike" />
+  </message>
+  <message name="retrieveCitizenByIdLikeResponse">
+    <part name="parameters" element="tns:retrieveCitizenByIdLikeResponse" />
+  </message>
+  <message name="retrieveCitizenById">
+    <part name="parameters" element="tns:retrieveCitizenById" />
+  </message>
+  <message name="retrieveCitizenByIdResponse">
+    <part name="parameters" element="tns:retrieveCitizenByIdResponse" />
+  </message>
+  <message name="isGccCitizen">
+    <part name="parameters" element="tns:isGccCitizen" />
+  </message>
+  <message name="isGccCitizenResponse">
+    <part name="parameters" element="tns:isGccCitizenResponse" />
+  </message>
+  <message name="retrieveCompanyById">
+    <part name="parameters" element="tns:retrieveCompanyById" />
+  </message>
+  <message name="retrieveCompanyByIdResponse">
+    <part name="parameters" element="tns:retrieveCompanyByIdResponse" />
+  </message>
+  <message name="retrieveCompanyByComNo">
+    <part name="parameters" element="tns:retrieveCompanyByComNo" />
+  </message>
+  <message name="retrieveCompanyByComNoResponse">
+    <part name="parameters" element="tns:retrieveCompanyByComNoResponse" />
+  </message>
+  <message name="retrieveEmployeeByNo">
+    <part name="parameters" element="tns:retrieveEmployeeByNo" />
+  </message>
+  <message name="retrieveEmployeeByNoResponse">
+    <part name="parameters" element="tns:retrieveEmployeeByNoResponse" />
+  </message>
+  <message name="retrieveCompanyByCommercialRegistery">
+    <part name="parameters" element="tns:retrieveCompanyByCommercialRegistery" />
+  </message>
+  <message name="retrieveCompanyByCommercialRegisteryResponse">
+    <part name="parameters" element="tns:retrieveCompanyByCommercialRegisteryResponse" />
+  </message>
+  <message name="retrieveGovnmntEstablishmentByRef">
+    <part name="parameters" element="tns:retrieveGovnmntEstablishmentByRef" />
+  </message>
+  <message name="retrieveGovnmntEstablishmentByRefResponse">
+    <part name="parameters" element="tns:retrieveGovnmntEstablishmentByRefResponse" />
+  </message>
+  <message name="retrieveCompaniesByComNos">
+    <part name="parameters" element="tns:retrieveCompaniesByComNos" />
+  </message>
+  <message name="retrieveCompaniesByComNosResponse">
+    <part name="parameters" element="tns:retrieveCompaniesByComNosResponse" />
+  </message>
+  <message name="retrieveGeneralEntityByCode">
+    <part name="parameters" element="tns:retrieveGeneralEntityByCode" />
+  </message>
+  <message name="retrieveGeneralEntityByCodeResponse">
+    <part name="parameters" element="tns:retrieveGeneralEntityByCodeResponse" />
+  </message>
+  <portType name="IdentityManagmentService">
+    <operation name="retriveResDateCitizenById">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retriveResDateCitizenByIdRequest" message="tns:retriveResDateCitizenById" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retriveResDateCitizenByIdResponse" message="tns:retriveResDateCitizenByIdResponse" />
+    </operation>
+    <operation name="retrieveCitizenByIdLike">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCitizenByIdLikeRequest" message="tns:retrieveCitizenByIdLike" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCitizenByIdLikeResponse" message="tns:retrieveCitizenByIdLikeResponse" />
+    </operation>
+    <operation name="retrieveCitizenById">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCitizenByIdRequest" message="tns:retrieveCitizenById" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCitizenByIdResponse" message="tns:retrieveCitizenByIdResponse" />
+    </operation>
+    <operation name="isGccCitizen">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/isGccCitizenRequest" message="tns:isGccCitizen" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/isGccCitizenResponse" message="tns:isGccCitizenResponse" />
+    </operation>
+    <operation name="retrieveCompanyById">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByIdRequest" message="tns:retrieveCompanyById" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByIdResponse" message="tns:retrieveCompanyByIdResponse" />
+    </operation>
+    <operation name="retrieveCompanyByComNo">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByComNoRequest" message="tns:retrieveCompanyByComNo" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByComNoResponse" message="tns:retrieveCompanyByComNoResponse" />
+    </operation>
+    <operation name="retrieveEmployeeByNo">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveEmployeeByNoRequest" message="tns:retrieveEmployeeByNo" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveEmployeeByNoResponse" message="tns:retrieveEmployeeByNoResponse" />
+    </operation>
+    <operation name="retrieveCompanyByCommercialRegistery">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByCommercialRegisteryRequest" message="tns:retrieveCompanyByCommercialRegistery" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompanyByCommercialRegisteryResponse" message="tns:retrieveCompanyByCommercialRegisteryResponse" />
+    </operation>
+    <operation name="retrieveGovnmntEstablishmentByRef">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveGovnmntEstablishmentByRefRequest" message="tns:retrieveGovnmntEstablishmentByRef" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveGovnmntEstablishmentByRefResponse" message="tns:retrieveGovnmntEstablishmentByRefResponse" />
+    </operation>
+    <operation name="retrieveCompaniesByComNos">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompaniesByComNosRequest" message="tns:retrieveCompaniesByComNos" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveCompaniesByComNosResponse" message="tns:retrieveCompaniesByComNosResponse" />
+    </operation>
+    <operation name="retrieveGeneralEntityByCode">
+      <input wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveGeneralEntityByCodeRequest" message="tns:retrieveGeneralEntityByCode" />
+      <output wsam:Action="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/IdentityManagmentService/retrieveGeneralEntityByCodeResponse" message="tns:retrieveGeneralEntityByCodeResponse" />
+    </operation>
+  </portType>
+  <binding name="IdentityManagmentServiceImplPortBinding" type="tns:IdentityManagmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="retriveResDateCitizenById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCitizenByIdLike">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCitizenById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="isGccCitizen">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCompanyById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCompanyByComNo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveEmployeeByNo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCompanyByCommercialRegistery">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveGovnmntEstablishmentByRef">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCompaniesByComNos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveGeneralEntityByCode">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IdentityManagmentService">
+    <port name="IdentityManagmentServiceImplPort" binding="tns:IdentityManagmentServiceImplPortBinding">
+      <soap:address location="https://orcl-wbcntr-int.mme.gov.qa:443/IdentityServiceView/custom/IdentityManagmentService" />
+    </port>
+  </service>
+</definitions>

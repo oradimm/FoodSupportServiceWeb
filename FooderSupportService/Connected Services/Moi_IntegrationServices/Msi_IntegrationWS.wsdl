@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://ejb.msi.moi.gov.qa/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://ejb.msi.moi.gov.qa/" />
+      <s:element name="GetPersonInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personInfoWsRequestParamsDto" type="tns:PersonInfoWsRequestParamsDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersonInfoWsRequestParamsDto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:WsRequestDTOsBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Qid" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdCardExpDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppUserName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WsRequestDTOsBase" />
+      <s:element name="GetPersonInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPersonInfoResult" type="tns:PersonInfoWsResponseDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersonInfoWsResponseDto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:WsResponseDTOsBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MsiException" type="tns:MsiException" />
+              <s:element minOccurs="0" maxOccurs="1" name="PersonInfo" type="tns:PersonInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WsResponseDTOsBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsOperationSuccess" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNoOfRecords" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsErrFromMmeSide" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsErrFromMoiSide" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsErrFromGdxSide" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MsiException">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MoiExceptionBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MoiExceptionBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MmeErrorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MmeArErrorDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MmeEnErrorDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoiErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoiArErrorDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoiEnErrorDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetErrorDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GdxDetErrorDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Qid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbName1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbName2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbName3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbName4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngName1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArbName5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngName2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngName3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngName4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngName5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NatCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NatCodeTextEN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NatCodeTextAR" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResidencyIssueDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResidencyExpiryDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdExpiryDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSponsorInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personInfoWsRequestParamsDto" type="tns:PersonInfoWsRequestParamsDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSponsorInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSponsorInfoResult" type="tns:SponsorInfoWsResponseDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SponsorInfoWsResponseDto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:WsResponseDTOsBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MsiException" type="tns:MsiException" />
+              <s:element minOccurs="0" maxOccurs="1" name="SponsorInfo" type="s1:sponsorDTO" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetCompanyInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companyInfoWsRequestParamsDto" type="tns:CompanyInfoWsRequestParamsDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CompanyInfoWsRequestParamsDto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:WsRequestDTOsBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CpyType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CpyNum" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CpyBrnNum" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdCardExpDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppUserName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetCompanyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyInfoResult" type="tns:CompanyInfoWsResponseDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CompanyInfoWsResponseDto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:WsResponseDTOsBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MsiException" type="tns:MsiException" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyInfo" type="tns:CompanyInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CompanyInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CpyNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpyBrNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpyTyp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpyArbName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpyEngName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CpyStrDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CpyExpDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpyStatusCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CpyStatusDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectorArabicDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectorEnglishDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizedPersons" type="tns:ArrayOfAuthorizedDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAuthorizedDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="authorizedDTO" nillable="true" type="s1:authorizedDTO" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ejb.msi.moi.gov.qa/">
+      <s:complexType name="sponsorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponArabName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponCompanyBrnNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponCompanyNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponCompanyType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponEngName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponQIDNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponRelation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponRelationDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponSponQIDNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sponTypeDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="authorizedDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="authorizedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="authorizedQidNum" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPersonInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPersonInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPersonInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPersonInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSponsorInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSponsorInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSponsorInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSponsorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Msi_IntegrationWSSoap">
+    <wsdl:operation name="GetPersonInfo">
+      <wsdl:input message="tns:GetPersonInfoSoapIn" />
+      <wsdl:output message="tns:GetPersonInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsorInfo">
+      <wsdl:input message="tns:GetSponsorInfoSoapIn" />
+      <wsdl:output message="tns:GetSponsorInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyInfo">
+      <wsdl:input message="tns:GetCompanyInfoSoapIn" />
+      <wsdl:output message="tns:GetCompanyInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Msi_IntegrationWSSoap" type="tns:Msi_IntegrationWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPersonInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPersonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsorInfo">
+      <soap:operation soapAction="http://tempuri.org/GetSponsorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Msi_IntegrationWSSoap12" type="tns:Msi_IntegrationWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPersonInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPersonInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsorInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetSponsorInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Msi_IntegrationWS">
+    <wsdl:port name="Msi_IntegrationWSSoap" binding="tns:Msi_IntegrationWSSoap">
+      <soap:address location="https://dotnetmoi.mme.gov.qa/Moi_IntegrationServices/Msi_IntegrationWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Msi_IntegrationWSSoap12" binding="tns:Msi_IntegrationWSSoap12">
+      <soap12:address location="https://dotnetmoi.mme.gov.qa/Moi_IntegrationServices/Msi_IntegrationWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

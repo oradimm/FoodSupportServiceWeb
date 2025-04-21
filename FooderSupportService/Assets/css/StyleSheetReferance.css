@@ -1,0 +1,103 @@
+﻿/* Apply CSS to make the divs display side by side and full screen width */
+.container {
+    display: flex;
+    width: 100%;
+    font-family: system-ui;
+    text-align: center;
+    font-size: large;
+}
+
+.box {
+    flex: 1; /* Distribute available space equally among the three divs */
+    height: 120px; /* Set the height as desired */
+    border: 0px solid #000; /* Optional: Add a border for visualization */
+}
+
+.icon-text {
+    text-align: center;
+    padding-left: 20px;
+}
+
+.icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #8a1538;
+}
+
+.rtl-div {
+    font-family: system-ui;
+    font-size: large;
+    text-align: right;
+    direction: rtl;
+    border: 0px solid #ccc; /* Optional: Add a border for visualization */
+    padding: 10px;
+}
+
+.centered-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+}
+
+.table-container {
+    border: 0px solid #ccc;
+    padding: 20px;
+    font-family: system-ui;
+}
+
+.ul-error {
+    text-align: right;
+    font-size: x-small;
+    color: red;
+}
+.red-button {
+    background-color: #8a1538; /* Red background color */
+    color: #FFFFFF; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
+    font-size: larger;
+    margin-top:25px;
+}
+.red-button:disabled {
+    background-color: #ccc; /* Red background color */
+    color: #888; /* White text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
+    font-size: larger;
+    cursor: not-allowed; /* Change the cursor to indicate it's not clickable */
+    /* Add any other styles you want for a disabled button */
+}
+    /* Hover effect */
+    .red-button:hover {
+        background-color: #89314b; /* Slightly darker red on hover */
+    }
+.bold {
+    font-weight:bold;
+}
+.error-box {
+    position: relative;
+    background-color: #ff6e6e;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #8a1538;
+    border-radius: 2px;
+    width: 700px;
+}
+.radioButtonList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.radioButtonList.horizontal li {
+        display: inline;
+    }
+.radioButtonList label {
+        display: inline;
+    }
+

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Send_Email">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To_Emails_List" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc_Email_List" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email_Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email_Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="My_Attached_File" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_EmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_EmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile_no" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Txt_sms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Send_normal_SMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_normal_SMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_ooredoo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Txt_sms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_ooredooResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_normal_SMS_ooredooResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_Employees">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Emp_Qid_sapno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Txt_sms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_EmployeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_normal_SMS_EmployeesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_ooredoo_Emp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QID_Sap" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Txt_sms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_normal_SMS_ooredoo_EmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_normal_SMS_ooredoo_EmpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Create_Send_Otp_OOredOO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="App_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Otptype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Opt_lenth" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mob_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sent_by" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Create_Send_Otp_OOredOOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Create_Send_Otp_OOredOOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Send_EmailSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_Email" />
+  </wsdl:message>
+  <wsdl:message name="Send_EmailSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_EmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMSSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMSSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_ooredooSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_ooredoo" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_ooredooSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_ooredooResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_EmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_Employees" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_EmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_EmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_ooredoo_EmpSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_ooredoo_Emp" />
+  </wsdl:message>
+  <wsdl:message name="Send_normal_SMS_ooredoo_EmpSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_normal_SMS_ooredoo_EmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="Create_Send_Otp_OOredOOSoapIn">
+    <wsdl:part name="parameters" element="tns:Create_Send_Otp_OOredOO" />
+  </wsdl:message>
+  <wsdl:message name="Create_Send_Otp_OOredOOSoapOut">
+    <wsdl:part name="parameters" element="tns:Create_Send_Otp_OOredOOResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommunicateSoap">
+    <wsdl:operation name="Send_Email">
+      <wsdl:input message="tns:Send_EmailSoapIn" />
+      <wsdl:output message="tns:Send_EmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS">
+      <wsdl:input message="tns:Send_normal_SMSSoapIn" />
+      <wsdl:output message="tns:Send_normal_SMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo">
+      <wsdl:input message="tns:Send_normal_SMS_ooredooSoapIn" />
+      <wsdl:output message="tns:Send_normal_SMS_ooredooSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_Employees">
+      <wsdl:input message="tns:Send_normal_SMS_EmployeesSoapIn" />
+      <wsdl:output message="tns:Send_normal_SMS_EmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo_Emp">
+      <wsdl:input message="tns:Send_normal_SMS_ooredoo_EmpSoapIn" />
+      <wsdl:output message="tns:Send_normal_SMS_ooredoo_EmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Create_Send_Otp_OOredOO">
+      <wsdl:input message="tns:Create_Send_Otp_OOredOOSoapIn" />
+      <wsdl:output message="tns:Create_Send_Otp_OOredOOSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommunicateSoap" type="tns:CommunicateSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Send_Email">
+      <soap:operation soapAction="http://tempuri.org/Send_Email" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS">
+      <soap:operation soapAction="http://tempuri.org/Send_normal_SMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo">
+      <soap:operation soapAction="http://tempuri.org/Send_normal_SMS_ooredoo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_Employees">
+      <soap:operation soapAction="http://tempuri.org/Send_normal_SMS_Employees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo_Emp">
+      <soap:operation soapAction="http://tempuri.org/Send_normal_SMS_ooredoo_Emp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create_Send_Otp_OOredOO">
+      <soap:operation soapAction="http://tempuri.org/Create_Send_Otp_OOredOO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommunicateSoap12" type="tns:CommunicateSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Send_Email">
+      <soap12:operation soapAction="http://tempuri.org/Send_Email" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS">
+      <soap12:operation soapAction="http://tempuri.org/Send_normal_SMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo">
+      <soap12:operation soapAction="http://tempuri.org/Send_normal_SMS_ooredoo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_Employees">
+      <soap12:operation soapAction="http://tempuri.org/Send_normal_SMS_Employees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_normal_SMS_ooredoo_Emp">
+      <soap12:operation soapAction="http://tempuri.org/Send_normal_SMS_ooredoo_Emp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create_Send_Otp_OOredOO">
+      <soap12:operation soapAction="http://tempuri.org/Create_Send_Otp_OOredOO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Communicate">
+    <wsdl:port name="CommunicateSoap" binding="tns:CommunicateSoap">
+      <soap:address location="https://swpdotnet.mme.gov.qa/Web_Services/notification.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommunicateSoap12" binding="tns:CommunicateSoap12">
+      <soap12:address location="https://swpdotnet.mme.gov.qa/Web_Services/notification.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

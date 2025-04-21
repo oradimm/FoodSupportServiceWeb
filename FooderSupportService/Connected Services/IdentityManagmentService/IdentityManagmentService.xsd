@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns0="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/" targetNamespace="http://ifc.jws.view.identity.services.adf.baladiya.gov.qa/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="isGccCitizen">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="IdNum" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="isGccCitizenResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCitizenById">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="id" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCitizenByIdLike">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idLike" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCitizenByIdLikeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:citizen" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCitizenByIdResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:citizen" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompaniesByComNos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="companiesNosList" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompaniesByComNosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:company" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyByComNo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="companyNo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyByComNoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:company" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyByCommercialRegistery">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="commercialRegistery" type="xsd:string" />
+      <xsd:element minOccurs="0" name="commercialRegisteryBranch" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyByCommercialRegisteryResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:company" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyById">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="companlyLicenseNo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveCompanyByIdResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:company" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveEmployeeByNo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="employeeNo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveEmployeeByNoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:employee" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveGeneralEntityByCode">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="generalEntityCode" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveGeneralEntityByCodeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:generalEntity" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveGovnmntEstablishmentByRef">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="establishmentRef" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveGovnmntEstablishmentByRefResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:establishment" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retriveResDateCitizenById">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="IdNum" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retriveResDateCitizenByIdResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="citizen">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="bleep" type="xsd:int" />
+      <xsd:element minOccurs="0" name="blockNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="citId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="citizenType" type="xsd:string" />
+      <xsd:element minOccurs="0" name="city" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cityCode" type="xsd:int" />
+      <xsd:element minOccurs="0" name="cityCodeBorn" type="xsd:int" />
+      <xsd:element minOccurs="0" name="createdDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="currentHouse" type="xsd:string" />
+      <xsd:element minOccurs="0" name="dob" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="famCode" type="xsd:int" />
+      <xsd:element minOccurs="0" name="familyMembers" type="xsd:short" />
+      <xsd:element minOccurs="0" name="fax" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ldsLetter" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ldsStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="livingStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="maritalStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moiNameA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moiNameE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moiUpdateDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="nameA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="natCode" type="xsd:short" />
+      <xsd:element minOccurs="0" name="natCodeBorn" type="xsd:short" />
+      <xsd:element minOccurs="0" name="notes" type="xsd:string" />
+      <xsd:element minOccurs="0" name="pob" type="xsd:string" />
+      <xsd:element minOccurs="0" name="prLocation" type="xsd:string" />
+      <xsd:element minOccurs="0" name="prNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="prSuffixNo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="requiredProject" type="xsd:string" />
+      <xsd:element minOccurs="0" name="residenceExpiryDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="sex" type="xsd:string" />
+      <xsd:element minOccurs="0" name="stNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="suspensionStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="telHouse" type="xsd:string" />
+      <xsd:element minOccurs="0" name="telWork" type="xsd:string" />
+      <xsd:element minOccurs="0" name="title" type="xsd:string" />
+      <xsd:element minOccurs="0" name="updatedDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="userpUsername" type="xsd:string" />
+      <xsd:element minOccurs="0" name="workCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="workCodeType" type="xsd:string" />
+      <xsd:element minOccurs="0" name="znNo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="company">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="address" type="xsd:string" />
+      <xsd:element minOccurs="0" name="appartmentNo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="applicantName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="blockNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="businessDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cancelBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cancelDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="cancelReason" type="xsd:string" />
+      <xsd:element minOccurs="0" name="canceled" type="xsd:string" />
+      <xsd:element minOccurs="0" name="comNo" type="xsd:long" />
+      <xsd:element minOccurs="0" name="comNoBranchOf" type="xsd:long" />
+      <xsd:element minOccurs="0" name="comNoOld" type="xsd:int" />
+      <xsd:element minOccurs="0" name="commercialLicense" type="xsd:int" />
+      <xsd:element minOccurs="0" name="commercialRegistry" type="xsd:int" />
+      <xsd:element minOccurs="0" name="commercialRegistryBranch" type="xsd:short" />
+      <xsd:element minOccurs="0" name="comtypSerial" type="xsd:short" />
+      <xsd:element minOccurs="0" name="cplaaprTypCode" type="xsd:short" />
+      <xsd:element minOccurs="0" name="establishmentNo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="expiryDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="fax" type="xsd:int" />
+      <xsd:element minOccurs="0" name="flatNo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="importLicense" type="xsd:int" />
+      <xsd:element minOccurs="0" name="industrialLicense" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instypCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="issueDat" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="locked" type="xsd:string" />
+      <xsd:element minOccurs="0" name="mgrName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="mncplCode" type="xsd:short" />
+      <xsd:element minOccurs="0" name="mobileNo" type="xsd:int" />
+      <xsd:element minOccurs="0" name="pob" type="xsd:int" />
+      <xsd:element minOccurs="0" name="prNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="prSuffixNo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="registerdBy" type="xsd:string" />
+      <xsd:element minOccurs="0" name="stNo" type="xsd:short" />
+      <xsd:element minOccurs="0" name="tel" type="xsd:int" />
+      <xsd:element minOccurs="0" name="title" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tradeName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tradeNameE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="znNo" type="xsd:short" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="employee">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="deptCode" type="xsd:int" />
+      <xsd:element minOccurs="0" name="deptFinanceCode" type="xsd:short" />
+      <xsd:element minOccurs="0" name="deptName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="descriptionA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="descriptionE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empNo" type="xsd:int" />
+      <xsd:element minOccurs="0" name="jobCode" type="xsd:int" />
+      <xsd:element minOccurs="0" name="jobtypCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameE" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="generalEntity">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" name="genentCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="genttypCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="moiApproval" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="natCode" type="xsd:short" />
+      <xsd:element minOccurs="0" name="oldGenentCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="oldGenttypCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="status" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="establishment">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="estRef" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameA" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nameE" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="isGccCitizen" type="ns0:isGccCitizen" />
+  <xsd:element name="isGccCitizenResponse" type="ns0:isGccCitizenResponse" />
+  <xsd:element name="retrieveCitizenById" type="ns0:retrieveCitizenById" />
+  <xsd:element name="retrieveCitizenByIdLike" type="ns0:retrieveCitizenByIdLike" />
+  <xsd:element name="retrieveCitizenByIdLikeResponse" type="ns0:retrieveCitizenByIdLikeResponse" />
+  <xsd:element name="retrieveCitizenByIdResponse" type="ns0:retrieveCitizenByIdResponse" />
+  <xsd:element name="retrieveCompaniesByComNos" type="ns0:retrieveCompaniesByComNos" />
+  <xsd:element name="retrieveCompaniesByComNosResponse" type="ns0:retrieveCompaniesByComNosResponse" />
+  <xsd:element name="retrieveCompanyByComNo" type="ns0:retrieveCompanyByComNo" />
+  <xsd:element name="retrieveCompanyByComNoResponse" type="ns0:retrieveCompanyByComNoResponse" />
+  <xsd:element name="retrieveCompanyByCommercialRegistery" type="ns0:retrieveCompanyByCommercialRegistery" />
+  <xsd:element name="retrieveCompanyByCommercialRegisteryResponse" type="ns0:retrieveCompanyByCommercialRegisteryResponse" />
+  <xsd:element name="retrieveCompanyById" type="ns0:retrieveCompanyById" />
+  <xsd:element name="retrieveCompanyByIdResponse" type="ns0:retrieveCompanyByIdResponse" />
+  <xsd:element name="retrieveEmployeeByNo" type="ns0:retrieveEmployeeByNo" />
+  <xsd:element name="retrieveEmployeeByNoResponse" type="ns0:retrieveEmployeeByNoResponse" />
+  <xsd:element name="retrieveGeneralEntityByCode" type="ns0:retrieveGeneralEntityByCode" />
+  <xsd:element name="retrieveGeneralEntityByCodeResponse" type="ns0:retrieveGeneralEntityByCodeResponse" />
+  <xsd:element name="retrieveGovnmntEstablishmentByRef" type="ns0:retrieveGovnmntEstablishmentByRef" />
+  <xsd:element name="retrieveGovnmntEstablishmentByRefResponse" type="ns0:retrieveGovnmntEstablishmentByRefResponse" />
+  <xsd:element name="retriveResDateCitizenById" type="ns0:retriveResDateCitizenById" />
+  <xsd:element name="retriveResDateCitizenByIdResponse" type="ns0:retriveResDateCitizenByIdResponse" />
+</xsd:schema>

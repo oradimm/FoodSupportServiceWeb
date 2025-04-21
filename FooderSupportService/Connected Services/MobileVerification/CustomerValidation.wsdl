@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0" xmlns:bons1="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" name="CustomerValidation" targetNamespace="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <abstractWSDL>https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification!2.0/CustomerVerificationMobileService.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" targetNamespace="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0">
+      <xsd:import schemaLocation="https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustoemrMobileService_schema.xsd" namespace="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" />
+      <xsd:include schemaLocation="https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustomerMobileService.xsd" />
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0">
+      <xsd:include schemaLocation="https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustoemrMobileService_schema.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificationCustomerMobilerRequestMsg">
+    <wsdl:part name="VerificationCustomerMobileParameters" element="tns:VerificationCustomerMobile" />
+  </wsdl:message>
+  <wsdl:message name="VerificationCustomerMobilerResponseMsg">
+    <wsdl:part name="VerificationCustomerMobileResult" element="tns:VerificationCustomerMobileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerVerificationMobile">
+    <wsdl:operation name="verifyCustomerMobile">
+      <wsdl:input name="VerifyCustomerMobileRequest" message="tns:VerificationCustomerMobilerRequestMsg" />
+      <wsdl:output name="validateCustomerResponse" message="tns:VerificationCustomerMobilerResponseMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerVerificationMobileBinding" type="tns:CustomerVerificationMobile">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="verifyCustomerMobile">
+      <soap:operation soapAction="verifyCustomerMobile" style="document" />
+      <wsdl:input name="VerifyCustomerMobileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validateCustomerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerVerificationMobileService">
+    <wsdl:port name="CustomerVerificationMobile_pt" binding="tns:CustomerVerificationMobileBinding">
+      <soap:address location="https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

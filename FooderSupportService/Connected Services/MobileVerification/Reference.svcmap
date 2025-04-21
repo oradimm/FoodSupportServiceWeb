@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4a19afb7-362c-47b9-828e-0acf698117e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://orcl-wbcntr-int.mme.gov.qa/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CustomerValidation.wsdl" MetadataType="Wsdl" ID="90c53795-79a1-4f7a-b984-19187d50720f" SourceId="1" SourceUrl="https://orcl-wbcntr-int.mme.gov.qa/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?WSDL" />
+    <MetadataFile FileName="VerificationCustoemrMobileService_schema.xsd" MetadataType="Schema" ID="0b3e7794-3636-4724-807f-4602c60a9dd3" SourceId="1" SourceUrl="https://orcl-wbcntr-int.mme.gov.qa/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustoemrMobileService_schema.xsd" />
+    <MetadataFile FileName="VerificationCustomerMobileService.xsd" MetadataType="Schema" ID="405ba9cf-7b34-4eb8-a8a2-28dec82331e9" SourceId="1" SourceUrl="https://orcl-wbcntr-int.mme.gov.qa/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustomerMobileService.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0" xmlns:bons1="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:baladiya.gov.qa/customerVerificationmobile/ws/v1_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="https://orcl-wbcntr-int.mme.gov.qa:443/soa-infra/services/integration_services/MobileVerification/CustomerVerificationMobileService?XSD=xsd/VerificationCustoemrMobileService_schema.xsd" namespace="urn:baladiya.gov.qa/customerVerificationmobile/schemas/v1_0" />
+  <xsd:element ibmSchExtn:docRoot="true" name="VerificationCustomerMobile">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="verifyCustomerMobileRequest" nillable="true" type="bons1:VerifyCustomerMobileRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element ibmSchExtn:docRoot="true" name="VerificationCustomerMobileResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="result" nillable="true" type="bons1:VerifyCustomerMobileResponse" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

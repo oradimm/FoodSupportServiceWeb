@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\28840000698\source\Workspaces\WaterSupportService\WaterSupportService\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2023-11-05T10:02:53.5743670Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Apply.aspx">
+      <publishTime>10/31/2023 10:18:29</publishTime>
+    </File>
+    <File Include="Assets/css/StyleSheetReferance.css">
+      <publishTime>11/04/2023 10:01:46</publishTime>
+    </File>
+    <File Include="Assets/images/MME-logo.png">
+      <publishTime>10/23/2023 17:51:31</publishTime>
+    </File>
+    <File Include="backend/Backend.Master">
+      <publishTime>11/03/2023 16:41:09</publishTime>
+    </File>
+    <File Include="backend/login.aspx">
+      <publishTime>11/03/2023 16:35:02</publishTime>
+    </File>
+    <File Include="backend/process.aspx">
+      <publishTime>11/05/2023 12:50:54</publishTime>
+    </File>
+    <File Include="backend/requests.aspx">
+      <publishTime>11/05/2023 12:01:03</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Data.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Office.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Printing.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.RichEdit.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:44</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v12.2.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Office.v12.2.Core.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Printing.v12.2.Core.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/DevExpress.RichEdit.v12.2.Core.dll">
+      <publishTime>11/03/2023 16:53:44</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v12.2.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Data.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Office.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Printing.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.RichEdit.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:44</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Data.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Office.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Printing.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.RichEdit.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:44</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/17/2021 23:03:36</publishTime>
+    </File>
+    <File Include="bin/Oracle.ManagedDataAccess.dll">
+      <publishTime>01/18/2023 23:00:20</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>08/26/2015 19:33:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Data.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Office.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Printing.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:42</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.RichEdit.v12.2.Core.resources.dll">
+      <publishTime>11/03/2023 16:53:44</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.v12.2.resources.dll">
+      <publishTime>11/03/2023 16:53:39</publishTime>
+    </File>
+    <File Include="bin/WaterSupportService.dll">
+      <publishTime>11/05/2023 13:02:52</publishTime>
+    </File>
+    <File Include="bin/WaterSupportService.pdb">
+      <publishTime>11/05/2023 13:02:52</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.AttachedDocDeleteResult.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.AttachedDocDownloadResult.datasource">
+      <publishTime>10/29/2023 12:03:52</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.AttachedDocThumbnailResult.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.AttachedDocUploadResult.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.FN_ATTCHMNT_SRVC_MNTR.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.MoveDocumentResult.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.UPDA_InfrStructure_DocClass_Props.datasource">
+      <publishTime>10/29/2023 12:03:51</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.UploadAttachmentFileWithPropertiesResponse.datasource">
+      <publishTime>10/29/2023 12:03:52</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.UploadConfirmedAttachmentFileResponse.datasource">
+      <publishTime>10/29/2023 12:03:52</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.UploadTempAttachmentFileResponse.datasource">
+      <publishTime>10/29/2023 12:03:52</publishTime>
+    </File>
+    <File Include="Connected Services/AttachmentsWSProd/WaterSupportService.AttachmentsWSProd.UploadTempAttachmentFileWithAuditResponse.datasource">
+      <publishTime>10/29/2023 12:03:52</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.citizen.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.company.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.employee.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.establishment.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.generalEntity.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.isGccCitizenResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCitizenByIdLikeResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCitizenByIdResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCompaniesByComNosResponse.datasource">
+      <publishTime>10/24/2023 19:38:48</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCompanyByCommercialRegisteryResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCompanyByComNoResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveCompanyByIdResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveEmployeeByNoResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveGeneralEntityByCodeResponse.datasource">
+      <publishTime>10/24/2023 19:38:48</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retrieveGovnmntEstablishmentByRefResponse.datasource">
+      <publishTime>10/24/2023 19:38:48</publishTime>
+    </File>
+    <File Include="Connected Services/IdentityManagmentService/WaterSupportService.IdentityManagmentService.retriveResDateCitizenByIdResponse.datasource">
+      <publishTime>10/24/2023 19:38:47</publishTime>
+    </File>
+    <File Include="Connected Services/MobileVerification/WaterSupportService.MobileVerification.validateCustomerResponse.datasource">
+      <publishTime>10/24/2023 12:00:01</publishTime>
+    </File>
+    <File Include="Connected Services/MobileVerification/WaterSupportService.MobileVerification.VerificationCustomerMobileResponse.datasource">
+      <publishTime>10/24/2023 12:00:01</publishTime>
+    </File>
+    <File Include="Connected Services/Moi_IntegrationServices/WaterSupportService.Moi_IntegrationServices.CompanyInfoWsResponseDto.datasource">
+      <publishTime>10/24/2023 12:01:20</publishTime>
+    </File>
+    <File Include="Connected Services/Moi_IntegrationServices/WaterSupportService.Moi_IntegrationServices.PersonInfoWsResponseDto.datasource">
+      <publishTime>10/24/2023 12:01:20</publishTime>
+    </File>
+    <File Include="Connected Services/Moi_IntegrationServices/WaterSupportService.Moi_IntegrationServices.SponsorInfoWsResponseDto.datasource">
+      <publishTime>10/24/2023 12:01:20</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Create_Send_Otp_OOredOOResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Send_EmailResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Send_normal_SMSResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Send_normal_SMS_EmployeesResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Send_normal_SMS_ooredooResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Connected Services/SMSWebService/WaterSupportService.SMSWebService.Send_normal_SMS_ooredoo_EmpResponse.datasource">
+      <publishTime>10/24/2023 19:14:43</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/24/2023 10:32:57</publishTime>
+    </File>
+    <File Include="MyRequests.aspx">
+      <publishTime>11/01/2023 21:38:28</publishTime>
+    </File>
+    <File Include="Profile.aspx">
+      <publishTime>10/29/2023 13:41:07</publishTime>
+    </File>
+    <File Include="SignIn.aspx">
+      <publishTime>10/25/2023 10:14:18</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>10/25/2023 10:14:34</publishTime>
+    </File>
+    <File Include="Success.aspx">
+      <publishTime>11/01/2023 09:26:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/05/2023 13:02:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

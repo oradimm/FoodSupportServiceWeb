@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Backend.master.cs" Inherits="FooderSupportService.backend.Backend" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="../Assets/css/StyleSheetReferance.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="box">
+                <div style="display: flex;">
+                    <div class="icon-text">
+                        <div>
+                            <i class="fa fa-user icon"></i>
+                        </div>
+                        <div>
+                            <asp:Label ID="lbl_adUserName" CssClass="bold" runat="server"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:LinkButton ID="lb_signOut" runat="server" OnClick="lb_signOut_Click">تسجيل الخروج</asp:LinkButton>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="icon-text">
+                        <div>
+                            
+                            <i class="fa fa-calendar icon"></i>
+                        </div>
+                        <div>
+                            <asp:LinkButton ID="lb_meetings" OnClick="lb_meetings_Click" runat="server" >اجتماعات اللجنة</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <span style="font-weight: bold;">خدمة الأعلاف المياه لمربين الثروة الحيوانية</span>
+                <br />
+                <span>ادارة الثروة الحيوانية</span>
+                <br />
+                <span>وزارة البلديـــة</span>
+            </div>
+            <div class="box">
+                <div style="text-align: right;">
+                    <img src="../Assets/images/MME-logo.png" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+          <div class="centered-div">
+            <div class="table-container">
+                <div class="rtl-div" style="text-align: center;">
+                    <span>ملكية فكرية 2025</span>
+                    <br />
+                    <span>جميع الحقوق محفوظة لوزارة البلدية - دولة قطر</span>
+                    <br />
+                    <span>للمساعدة يرجى الاتصال على 184</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
