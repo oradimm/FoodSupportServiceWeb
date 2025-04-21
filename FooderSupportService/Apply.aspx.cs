@@ -23,11 +23,12 @@ namespace FooderSupportService
         protected  RequestObj currentRequest { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["CanApply"] = "True";
-            Session["UserQid"] = "28840000698";
-            Session["UserMobile"] = "74000797";
-            Session["UserName"] = "عمرا راضي تجريبي";
-            Session["UserId"] = "-5";
+            //Session["CanApply"] = "True";
+            //Session["UserQid"] = "28840000698";
+            //Session["UserMobile"] = "74000797";
+            //Session["UserName"] = "عمرا راضي تجريبي";
+            //Session["UserId"] = "-5";
+
             if (Session["CanApply"] == "True")
             {
                 if (Session["UserQid"] != null)
@@ -541,159 +542,26 @@ namespace FooderSupportService
                     };
                     OracleCommand oracleCommand = new OracleCommand();
                     oracleCommand = oracleConnection.CreateCommand();
-                    oracleCommand.CommandText = @"insert into WSS_REQUEST( SHEEPS,COWS_WATER_AMT
-,WATER_CERT_PROFILE,APPROVAL_STATUS,WATER_PRICE,REVIEW_NOTES,REQ_DATE,GOATS_WATER_AMT,GOATS,USER_PROFILE,COWS,GAZALS_WATER_AMT,REVIEW_STATUS,APPROVAL_BY,
-APPROVAL_DATE,APPROVAL_NOTES,HORSES_WATER_AMT,SUPPORT_END,HORSES,CAMELS_WATER_AMT,GAZALS,CAMELS,BANK_PROFILE,SHEEPS_WATER_AMT,SUPPORT_START,REVIEWED_DATE,REVIEWED_BY) 
-values (:p_SHEEPS,:p_COWS_WATER_AMT,:p_WATER_CERT_PROFILE,:p_APPROVAL_STATUS,:p_WATER_PRICE,:p_REVIEW_NOTES,:p_REQ_DATE,:p_GOATS_WATER_AMT,:p_GOATS,:p_USER_PROFILE
-,:p_COWS,:p_GAZALS_WATER_AMT,:p_REVIEW_STATUS,:p_APPROVAL_BY,:p_APPROVAL_DATE,:p_APPROVAL_NOTES,:p_HORSES_WATER_AMT,:p_SUPPORT_END,:p_HORSES
-,:p_CAMELS_WATER_AMT,:p_GAZALS,:p_CAMELS,:p_BANK_PROFILE,:p_SHEEPS_WATER_AMT,:p_SUPPORT_START,:p_REVIEWED_DATE,:p_REVIEWED_BY) RETURNING REQ_ID INTO :insertedId";
+                    oracleCommand.CommandText = @"insert into requests (REQ_DATE ,USER_PROFILE ,REVIEW_STATUS ,SHEEPS ,APPROVAL_STATUS ,REQUEST_SOURCE ,DELIVERY_STATUS)
+VALUES(sysdate ,:p_USER_PROFILE ,0 ,:p_SHEEPS ,0 ,'WEB' ,0) RETURNING REQ_ID INTO :insertedId";
 
                     oracleCommand.CommandType = CommandType.Text;
-                    OracleParameter p_SHEEPS = new OracleParameter("p_SHEEPS", OracleDbType.Int32);
-                    p_SHEEPS.Direction = ParameterDirection.Input;
-                    p_SHEEPS.Value = currentRequest.Sheeps;
-                    oracleCommand.Parameters.Add(p_SHEEPS);
-
-                    OracleParameter p_COWS_WATER_AMT = new OracleParameter("p_COWS_WATER_AMT", OracleDbType.Int32);
-                    p_COWS_WATER_AMT.Direction = ParameterDirection.Input;
-                   // p_COWS_WATER_AMT.Value = currentRequest.CowsWaterAmt;
-                    oracleCommand.Parameters.Add(p_COWS_WATER_AMT);
-
-                    OracleParameter p_WATER_CERTP_ROFILE = new OracleParameter("p_WATER_CERT_PROFILE", OracleDbType.Int32);
-                    p_WATER_CERTP_ROFILE.Direction = ParameterDirection.Input;
-                   // p_WATER_CERTP_ROFILE.Value = currentRequest.WaterCertProfile;
-                    oracleCommand.Parameters.Add(p_WATER_CERTP_ROFILE);
-
-                    OracleParameter p_APPROVAL_STATUS = new OracleParameter("p_APPROVAL_STATUS", OracleDbType.Int32);
-                    p_APPROVAL_STATUS.Direction = ParameterDirection.Input;
-                    p_APPROVAL_STATUS.Value = currentRequest.ApprovalStatus;
-                    oracleCommand.Parameters.Add(p_APPROVAL_STATUS);
-
-                    OracleParameter p_WATER_PRICE = new OracleParameter("p_WATER_PRICE", OracleDbType.Decimal);
-                    p_WATER_PRICE.Direction = ParameterDirection.Input;
-                    //p_WATER_PRICE.Value = currentRequest.WaterPrice;
-                    oracleCommand.Parameters.Add(p_WATER_PRICE);
-
-                    OracleParameter p_REVIEW_NOTES = new OracleParameter("p_REVIEW_NOTES", OracleDbType.Varchar2);
-                    p_REVIEW_NOTES.Direction = ParameterDirection.Input;
-                    p_REVIEW_NOTES.Value = currentRequest.ReviewNotes;
-                    oracleCommand.Parameters.Add(p_REVIEW_NOTES);
-
-                    OracleParameter p_REQ_DATE = new OracleParameter("p_REQ_DATE", OracleDbType.Date);
-                    p_REQ_DATE.Direction = ParameterDirection.Input;
-                    p_REQ_DATE.Value = currentRequest.ReqDate;
-                    oracleCommand.Parameters.Add(p_REQ_DATE);
-
-                    OracleParameter p_GOATS_WATER_AMT = new OracleParameter("p_GOATS_WATER_AMT", OracleDbType.Int32);
-                    p_GOATS_WATER_AMT.Direction = ParameterDirection.Input;
-                    //p_GOATS_WATER_AMT.Value = currentRequest.GoatsWaterAmt;
-                    oracleCommand.Parameters.Add(p_GOATS_WATER_AMT);
-
-                    OracleParameter p_GOATS = new OracleParameter("p_GOATS", OracleDbType.Int32);
-                    p_GOATS.Direction = ParameterDirection.Input;
-                   // p_GOATS.Value = currentRequest.Goats;
-                    oracleCommand.Parameters.Add(p_GOATS);
-
                     OracleParameter p_USER_PROFILE = new OracleParameter("p_USER_PROFILE", OracleDbType.Int32);
                     p_USER_PROFILE.Direction = ParameterDirection.Input;
                     p_USER_PROFILE.Value = currentRequest.UserProfile;
                     oracleCommand.Parameters.Add(p_USER_PROFILE);
-
-                    OracleParameter p_COWS = new OracleParameter("p_COWS", OracleDbType.Int32);
-                    p_COWS.Direction = ParameterDirection.Input;
-                   // p_COWS.Value = currentRequest.Cows;
-                    oracleCommand.Parameters.Add(p_COWS);
-
-                    OracleParameter p_GAZALS_WATER_AMT = new OracleParameter("p_GAZALS_WATER_AMT", OracleDbType.Int32);
-                    p_GAZALS_WATER_AMT.Direction = ParameterDirection.Input;
-                    //p_GAZALS_WATER_AMT.Value = currentRequest.GazalsWaterAmt;
-                    oracleCommand.Parameters.Add(p_GAZALS_WATER_AMT);
-
-                    OracleParameter p_REVIEW_STATUS = new OracleParameter("p_REVIEW_STATUS", OracleDbType.Int32);
-                    p_REVIEW_STATUS.Direction = ParameterDirection.Input;
-                    p_REVIEW_STATUS.Value = currentRequest.ReviewStatus;
-                    oracleCommand.Parameters.Add(p_REVIEW_STATUS);
-
-                    OracleParameter p_APPROVAL_BY = new OracleParameter("p_APPROVAL_BY", OracleDbType.Varchar2);
-                    p_APPROVAL_BY.Direction = ParameterDirection.Input;
-                    p_APPROVAL_BY.Value = currentRequest.ApprovalBy;
-                    oracleCommand.Parameters.Add(p_APPROVAL_BY);
-
-                    OracleParameter p_APPROVAL_DATE = new OracleParameter("p_APPROVAL_DATE", OracleDbType.Date);
-                    p_APPROVAL_DATE.Direction = ParameterDirection.Input;
-                    p_APPROVAL_DATE.Value = currentRequest.ApprovalDate;
-                    oracleCommand.Parameters.Add(p_APPROVAL_DATE);
-
-                    OracleParameter p_APPROVAL_NOTES = new OracleParameter("p_APPROVAL_NOTES", OracleDbType.Varchar2);
-                    p_APPROVAL_NOTES.Direction = ParameterDirection.Input;
-                    p_APPROVAL_NOTES.Value = currentRequest.ApprovalNotes;
-                    oracleCommand.Parameters.Add(p_APPROVAL_NOTES);
-
-                    OracleParameter p_HORSES_WATER_AMT = new OracleParameter("p_HORSES_WATER_AMT", OracleDbType.Varchar2);
-                    p_HORSES_WATER_AMT.Direction = ParameterDirection.Input;
-                    //p_HORSES_WATER_AMT.Value = currentRequest.HorsesWaterAmt;
-                    oracleCommand.Parameters.Add(p_HORSES_WATER_AMT);
-
-                    OracleParameter p_SUPPORT_END = new OracleParameter("p_SUPPORT_END", OracleDbType.Date);
-                    p_SUPPORT_END.Direction = ParameterDirection.Input;
-                    p_SUPPORT_END.Value = currentRequest.SupportEnd;
-                    oracleCommand.Parameters.Add(p_SUPPORT_END);
-
-                    OracleParameter p_HORSES = new OracleParameter("p_HORSES", OracleDbType.Int32);
-                    p_HORSES.Direction = ParameterDirection.Input;
-                   // p_HORSES.Value = currentRequest.Horses;
-                    oracleCommand.Parameters.Add(p_HORSES);
-
-                    OracleParameter p_CAMELS_WATER_AMT = new OracleParameter("p_CAMELS_WATER_AMT", OracleDbType.Int32);
-                    p_CAMELS_WATER_AMT.Direction = ParameterDirection.Input;
-                    //p_CAMELS_WATER_AMT.Value = currentRequest.CamelsWaterAmt;
-                    oracleCommand.Parameters.Add(p_CAMELS_WATER_AMT);
-
-                    OracleParameter p_GAZALS = new OracleParameter("p_GAZALS", OracleDbType.Int32);
-                    p_GAZALS.Direction = ParameterDirection.Input;
-                   // p_GAZALS.Value = currentRequest.Gazals;
-                    oracleCommand.Parameters.Add(p_GAZALS);
-
-                    OracleParameter p_CAMELS = new OracleParameter("p_CAMELS", OracleDbType.Int32);
-                    p_CAMELS.Direction = ParameterDirection.Input;
-                  //  p_CAMELS.Value = currentRequest.Camels;
-                    oracleCommand.Parameters.Add(p_CAMELS);
-
-                    OracleParameter p_BANK_PROFILE = new OracleParameter("p_BANK_PROFILE", OracleDbType.Int32);
-                    p_BANK_PROFILE.Direction = ParameterDirection.Input;
-                  //  p_BANK_PROFILE.Value = currentRequest.BankProfile;
-                    oracleCommand.Parameters.Add(p_BANK_PROFILE);
-
-                    OracleParameter p_SHEEPS_WATER_AMT = new OracleParameter("p_SHEEPS_WATER_AMT", OracleDbType.Int32);
-                    p_SHEEPS_WATER_AMT.Direction = ParameterDirection.Input;
-                   // p_SHEEPS_WATER_AMT.Value = currentRequest.SheepsWaterAmt;
-                    oracleCommand.Parameters.Add(p_SHEEPS_WATER_AMT);
-
-                    OracleParameter p_SUPPORT_START = new OracleParameter("p_SUPPORT_START", OracleDbType.Date);
-                    p_SUPPORT_START.Direction = ParameterDirection.Input;
-                    p_SUPPORT_START.Value = currentRequest.SupportStart;
-                    oracleCommand.Parameters.Add(p_SUPPORT_START);
-
-                    OracleParameter p_REVIEWED_DATE = new OracleParameter("p_REVIEWED_DATE", OracleDbType.Date);
-                    p_REVIEWED_DATE.Direction = ParameterDirection.Input;
-                    p_REVIEWED_DATE.Value = currentRequest.ReviewedDate;
-                    oracleCommand.Parameters.Add(p_REVIEWED_DATE);
-
-                    OracleParameter p_REVIEWED_BY = new OracleParameter("p_REVIEWED_BY", OracleDbType.NVarchar2);
-                    p_REVIEWED_BY.Direction = ParameterDirection.Input;
-                    p_REVIEWED_BY.Value = currentRequest.ReviewedBy;
-                    oracleCommand.Parameters.Add(p_REVIEWED_BY);
-
+                    OracleParameter p_SHEEPS = new OracleParameter("p_SHEEPS", OracleDbType.Int32);
+                    p_SHEEPS.Direction = ParameterDirection.Input;
+                    p_SHEEPS.Value = currentRequest.Sheeps;
+                    oracleCommand.Parameters.Add(p_SHEEPS);
                     oracleCommand.Parameters.Add("insertedId", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
-
                     oracleConnection.Open();
                     oracleCommand.ExecuteNonQuery();
                     object id = oracleCommand.Parameters["insertedId"].Value;
                     int recordId = int.Parse(id.ToString());
                     oracleConnection.Close();
-
-                    string requestRef = "WSS" + DateTime.Today.ToString("yy") + DateTime.Today.ToString("MM") + recordId.ToString();
-                    UtilityHelper.SendSms(UserMobile, "تم تقديم طلب خدمة دعم المياه بنجاح, رقم الطلب" + ":" + requestRef + " حالة الطلب تحت المراجعة و يمكن متابعة الطلب من خلال موقع الوزارة او تطبيق عون");
+                    string requestRef = "FSS" + DateTime.Today.ToString("yy") + DateTime.Today.ToString("MM") + recordId.ToString();
+                    UtilityHelper.SendSms(UserMobile, "تم تقديم طلب خدمة دعم الاعلاف بنجاح, رقم الطلب" + ":" + requestRef + " حالة الطلب تحت المراجعة و يمكن متابعة الطلب من خلال موقع الوزارة او تطبيق عون");
                     Response.Redirect("~/Success.aspx?req=" + requestRef);
 
                 }

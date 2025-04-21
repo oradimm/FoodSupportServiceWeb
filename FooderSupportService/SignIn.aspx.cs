@@ -19,15 +19,8 @@ namespace FooderSupportService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    lbl_user_value.Text = Session["user-qid"].ToString();
-            //}
-            //catch (Exception ex)
-            //{
-            //    lbl_user_value.Text = ex.Message;
-            //}
-           
+            txt_qid.Text = "28840000698";
+            txt_mobile.Text = "74000797";  
         }
         protected void btn_send_otp_Click(object sender, EventArgs e)
         {
@@ -38,7 +31,8 @@ namespace FooderSupportService
             txt_otp.Enabled = true;
             if (CheckQidMobile(txt_qid.Text, txt_mobile.Text))
             {
-                string otp = CreateOTP(4);    
+                string otp = CreateOTP(4);
+                txt_otp.Text = otp;
                 Session["otp"] = otp;
                 string smsBody = "رمز التحقق هو: "+otp;
                 UtilityHelper.SendSms(txt_mobile.Text, smsBody);
@@ -62,16 +56,17 @@ namespace FooderSupportService
                 Session["UserName"] = GetUserNameByQID(txt_qid.Text);
                 int userId = UpdateUserProfile(txt_qid.Text, Session["UserName"].ToString(), txt_mobile.Text);
 
-                //test
-                //Session["UserQid"] = "25163400167";
+                ////test
+                //Session["UserQid"] = "28840000698";
                 //Session["UserMobile"] = "74000797";
-                //Session["UserName"] = GetUserNameByQID("25163400167");
-                //int userId = UpdateUserProfile("25163400167", Session["UserName"].ToString(), "74000797");
+                //Session["UserName"] = GetUserNameByQID("28840000698");
+                //int userId = UpdateUserProfile("28840000698", Session["UserName"].ToString(), "74000797");
 
                 if (userId != -1)
                 {
                     DateTime lastActivity = UtilityHelper.GetLastActivityForUser(userId);
-                    if (lastActivity.AddMinutes(10) < DateTime.Now)
+                    //if (lastActivity.AddMinutes(10) < DateTime.Now)
+                    if (lastActivity.AddMinutes(0) < DateTime.Now)
                     {
                         Session["UserId"] = userId;
                         UtilityHelper.UpdateLastActivityForUser(userId);
