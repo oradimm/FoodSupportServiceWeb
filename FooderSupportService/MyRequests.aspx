@@ -6,7 +6,6 @@
     <div class="centered-div" style="padding-bottom:50px;">
         <asp:Button ID="btn_new_request" CssClass="red-button" runat="server" Text="طلب جديد" Visible="true" OnClick="btn_new_request_Click" />
     </div>
-
     <div class="centered-div" runat="server" id="errorBox" visible="false">
         <div class="table-container">
              <div class="error-box">
@@ -15,8 +14,6 @@
     </div>
         </div>
     </div>
-
-
     <div class="centered-div">
         <div class="table-container">
             <div class="rtl-div bold">
@@ -26,11 +23,8 @@
                 <asp:Table ID="tbl_myRequests" runat="server" BorderStyle="Solid" BorderWidth="1px" Width="1200px" Font-Bold="true" >
                     <asp:TableRow>
                         <asp:TableCell BorderStyle="Solid" BorderWidth="0 px" ColumnSpan="3" ></asp:TableCell>
-                
                         <asp:TableCell BorderStyle="Solid" BorderWidth="1 px" ColumnSpan="2">كمية العلف (كيس)</asp:TableCell>
                         <asp:TableCell BorderStyle="Solid" BorderWidth="0 px" ColumnSpan="4"></asp:TableCell>
-                      
-                       
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell BorderStyle="Solid" BorderWidth="1px" >رقم الطلب</asp:TableCell>
@@ -47,9 +41,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="centered-div" runat="server" id="calculations_panel" visible="false">
         <div class="table-container">
             <div class="rtl-div bold">
@@ -104,5 +95,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

@@ -35,7 +35,7 @@ namespace FooderSupportService
                 txt_otp.Text = otp;
                 Session["otp"] = otp;
                 string smsBody = "رمز التحقق هو: "+otp;
-                UtilityHelper.SendSms(txt_mobile.Text, smsBody);
+                //UtilityHelper.SendSms(txt_mobile.Text, smsBody);
             }
             else
             {
