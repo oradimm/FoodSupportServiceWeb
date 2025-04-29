@@ -27,17 +27,6 @@
                             <asp:LinkButton ID="lb_signOut" runat="server" OnClick="lb_signOut_Click">تسجيل الخروج</asp:LinkButton>
                         </div>
                     </div>
-                    
-                    
-                    <div class="icon-text">
-                        <div>
-                            
-                            <i class="fa fa-calendar icon"></i>
-                        </div>
-                        <div>
-                            <asp:LinkButton ID="lb_meetings" OnClick="lb_meetings_Click" runat="server" >اجتماعات اللجنة</asp:LinkButton>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="box">

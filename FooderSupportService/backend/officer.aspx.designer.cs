@@ -11,7 +11,7 @@ namespace FooderSupportService.backend
 {
 
 
-    public partial class requests
+    public partial class officer
     {
 
         /// <summary>
@@ -22,24 +22,6 @@ namespace FooderSupportService.backend
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_underReview;
-
-        /// <summary>
-        /// btn_underAuditing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_underAuditing;
-
-        /// <summary>
-        /// btn_underProcess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_underProcess;
 
         /// <summary>
         /// btn_allRequests control.
@@ -78,103 +60,49 @@ namespace FooderSupportService.backend
         protected global::System.Web.UI.WebControls.Table tbl_ownerships;
 
         /// <summary>
-        /// lb_view_iban_cert control.
+        /// rad_lst_fooders_qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_view_iban_cert;
+        protected global::System.Web.UI.WebControls.RadioButtonList rad_lst_fooders_qty;
 
         /// <summary>
-        /// lb_view_water_cert control.
+        /// lbl_TotalProteinFooderKg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_view_water_cert;
+        protected global::System.Web.UI.WebControls.Label lbl_TotalProteinFooderKg;
 
         /// <summary>
-        /// txt_iban8 control.
+        /// lbl_TotalGrassFooderKg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban8;
+        protected global::System.Web.UI.WebControls.Label lbl_TotalGrassFooderKg;
 
         /// <summary>
-        /// txt_iban7 control.
+        /// lbl_TotalProteinFooderBag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban7;
+        protected global::System.Web.UI.WebControls.Label lbl_TotalProteinFooderBag;
 
         /// <summary>
-        /// txt_iban6 control.
+        /// lbl_TotalGrassFooderBag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban6;
-
-        /// <summary>
-        /// txt_iban5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban5;
-
-        /// <summary>
-        /// txt_iban4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban4;
-
-        /// <summary>
-        /// txt_iban3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban3;
-
-        /// <summary>
-        /// txt_iban2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban2;
-
-        /// <summary>
-        /// txt_iban1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_iban1;
-
-        /// <summary>
-        /// lb_save_iban control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lb_save_iban;
+        protected global::System.Web.UI.WebControls.Label lbl_TotalGrassFooderBag;
 
         /// <summary>
         /// radBtnList_Action control.
@@ -184,15 +112,6 @@ namespace FooderSupportService.backend
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList radBtnList_Action;
-
-        /// <summary>
-        /// panel_reject_reason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_reject_reason;
 
         /// <summary>
         /// txt_reject_reson control.

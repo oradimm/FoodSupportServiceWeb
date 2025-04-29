@@ -11,9 +11,10 @@ namespace FooderSupportService.backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["EmpUserName"] != null)
+            if (Session["backUserObj"] != null)
             {
-                lbl_adUserName.Text = Session["EmpUserName"].ToString();
+                BackUserObj userObj = (BackUserObj)Session["backUserObj"];
+                lbl_adUserName.Text = userObj.UserQid+", "+userObj.UserRole;
             }
             else
             {
@@ -23,15 +24,8 @@ namespace FooderSupportService.backend
 
         protected void lb_signOut_Click(object sender, EventArgs e)
         {
-            Session["EmpUserName"] = null;
+            Session["backUserObj"] = null;
             Response.Redirect("~/backend/login.aspx");
-        }
-
-       
-
-        protected void lb_meetings_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/backend/meetings.aspx");
         }
     }
 }

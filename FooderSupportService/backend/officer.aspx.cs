@@ -12,10 +12,12 @@ using System.Web.UI.WebControls;
 
 namespace FooderSupportService.backend
 {
-    public partial class requests : System.Web.UI.Page
+    public partial class officer : System.Web.UI.Page
     {
+        BackUserObj backUserObj { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            backUserObj = (BackUserObj)Session["backUserObj"];
             if (!IsPostBack)
             {
                 GridDataBind();
@@ -56,13 +58,13 @@ namespace FooderSupportService.backend
             }
             return dataTable;
         }
-        protected DataTable UpdateRequestReviewStatus(string reqId,string actionValue,string user,string notes,string requestRef, string mobile)
+        protected DataTable UpdateRequestReviewStatus(string reqId, string actionValue, string user, string notes, string requestRef, string mobile, int GrassBagSizeKg, int ProteinBagSizeKg, int GrassFooderPerLivestockKg, int ProteinFooderPerLivestockKg, int TotalGrassFooderKg, int TotalProteinFooderKg, decimal TotalGrassFooderBag, decimal TotalProteinFooderBag)
         {
             string approvalStatus = "0";
             if (actionValue == "2")
             {
                 approvalStatus = "2";
-                UtilityHelper.SendSms(mobile, "عزيزي المربي تم رفض طلب دعم المياه رقم: " + requestRef + "و ذلك " + notes);
+                UtilityHelper.SendSms(mobile, "عزيزي المربي تم رفض طلب دعم الأعلاف رقم: " + requestRef + "و ذلك " + notes);
             }
             DataTable dataTable = new DataTable();
             try
@@ -73,7 +75,10 @@ namespace FooderSupportService.backend
                 };
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "update   WSS_REQUEST set REVIEW_STATUS="+actionValue+ ", reviewed_date=SYSDATE, reviewed_by='"+user+"', review_notes='"+notes+ "', APPROVAL_STATUS="+ approvalStatus + " WHERE REQ_ID = " + reqId;
+                oracleCommand.CommandText = "update   REQUESTS set GRASS_F_PER_LIVESTOCK_KG=" + GrassFooderPerLivestockKg + ",PROTEIN_F_PER_LIVESTOCK_KG=" + ProteinFooderPerLivestockKg +
+                    ",TOTAL_GRASS_F_KG=" + TotalGrassFooderKg + ",TOTAL_PROTEIN_F_KG=" + TotalProteinFooderKg + ",TOTAL_GRASS_F_BAG=" + TotalGrassFooderBag +
+                    ",TOTAL_PROTEIN_F_BAG=" + TotalProteinFooderBag + ",GRASS_BAG_SIZE_KG=" + GrassBagSizeKg + ",PROTEIN_BAG_SIZE_KG=" + ProteinBagSizeKg +
+                    " ,REVIEW_STATUS=" + actionValue + ", REVIEWED_DATE=SYSDATE, REVIEWED_BY='" + user + "', REVIEW_NOTES='" + notes + "', APPROVAL_STATUS=" + approvalStatus + " WHERE REQ_ID = " + reqId;
                 oracleCommand.CommandType = CommandType.Text;
                 oracleConnection.Open();
                 int rowsAffected = oracleCommand.ExecuteNonQuery();
@@ -90,196 +95,44 @@ namespace FooderSupportService.backend
             ASPxGridView grid = sender as ASPxGridView;
             var RequIdData = grid.GetSelectedFieldValues("REQ_ID");
             var MobileData = grid.GetSelectedFieldValues("MOBILE");
-            
-            var BankProfileData = grid.GetSelectedFieldValues("BANK_PROFILE");
-            var WaterCertData = grid.GetSelectedFieldValues("WATER_CERT_PROFILE");
-            
+            var SheepsData = grid.GetSelectedFieldValues("SHEEPS");
             var RequestRefData = grid.GetSelectedFieldValues("REF");
             Session["selectedRequestId"] = RequIdData[0].ToString(); 
             Session["selectedRequestRef"] = RequestRefData[0].ToString();
-            Session["Mobile"] = MobileData[0].ToString();
-            
-            Session["BankProfileId"] = BankProfileData[0].ToString();
-            
-            Session["WaterCertId"] = WaterCertData[0].ToString();
-            
-            BindBankInfo(Session["BankProfileId"].ToString());
-            BindWaterCertInfo(Session["WaterCertId"].ToString());
+            Session["selectedRequestMobile"] = MobileData[0].ToString();
+            Session["selectedRequestSheeps"] = SheepsData[0].ToString();
             string qid = grid.GetSelectedFieldValues("QID")[0].ToString();
             GetOwnershipsData(qid);
             panel_action.Visible = true;
         }
-        protected void radBtnList_Action_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (radBtnList_Action.SelectedValue == "2")
-            {
-                panel_reject_reason.Visible = true;
-            }
-            else
-            {
-                panel_reject_reason.Visible = false;
-            }
-        }
         protected void btn_save_Click(object sender, EventArgs e)
         {
+            int selectedRequestId = Convert.ToInt32(Session["selectedRequestId"]);
+            string EmpUserName = backUserObj.UserQid;
+            string selectedRequestRef = Session["selectedRequestRef"].ToString();
+            string electedRequestMobile = Session["selectedRequestMobile"].ToString();
             if (radBtnList_Action.SelectedValue == "1")
             {
-                UpdateRequestReviewStatus(Session["selectedRequestId"].ToString(), "1", Session["EmpUserName"].ToString(), "","","");
+                
+                UpdateRequestReviewStatus(selectedRequestId.ToString(),"1", EmpUserName, txt_reject_reson.Text, selectedRequestRef, electedRequestMobile
+                    , 30,50,Convert.ToInt32(rad_lst_fooders_qty.SelectedValue)
+                    , Convert.ToInt32(rad_lst_fooders_qty.SelectedValue)
+                    , Convert.ToInt32(lbl_TotalGrassFooderKg.Text)
+                    , Convert.ToInt32(lbl_TotalProteinFooderKg.Text)
+                    , Convert.ToInt32(lbl_TotalGrassFooderBag.Text)
+                    , Convert.ToInt32(lbl_TotalProteinFooderBag.Text));
             }
             else if(radBtnList_Action.SelectedValue == "2")
             {
-                UpdateRequestReviewStatus(Session["selectedRequestId"].ToString(), "2", Session["EmpUserName"].ToString(), txt_reject_reson.Text, Session["selectedRequestRef"].ToString(), Session["Mobile"].ToString());
+                UpdateRequestReviewStatus(selectedRequestId.ToString(), "2", EmpUserName, txt_reject_reson.Text, selectedRequestRef, electedRequestMobile, 0, 0, 0, 0, 0, 0, 0, 0);
             }
             GridDataBind();
             panel_action.Visible = false;
-        }
-        public void BindBankInfo(string bankProfileId)
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
-                OracleConnection oracleConnection = new OracleConnection
-                {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["FOODERSS_PRODConnString"].ConnectionString
-                };
-                OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select * from USER_BANK_INFO where ID=:profileId";
-                oracleCommand.CommandType = CommandType.Text;
-                OracleParameter oracleParameter = new OracleParameter("profileId", bankProfileId);
-                oracleCommand.Parameters.Add(oracleParameter);
-                OracleDataAdapter oracleDataAdapter = new OracleDataAdapter(oracleCommand);
-                oracleDataAdapter.Fill(dataTable);
-                if (dataTable.Rows.Count > 0)
-                {
-                    txt_iban1.Text = dataTable.Rows[0]["IBAN1"].ToString();
-                    txt_iban2.Text = dataTable.Rows[0]["IBAN2"].ToString();
-                    txt_iban3.Text = dataTable.Rows[0]["IBAN3"].ToString();
-                    txt_iban4.Text = dataTable.Rows[0]["IBAN4"].ToString();
-                    txt_iban5.Text = dataTable.Rows[0]["IBAN5"].ToString();
-                    txt_iban6.Text = dataTable.Rows[0]["IBAN6"].ToString();
-                    txt_iban7.Text = dataTable.Rows[0]["IBAN7"].ToString();
-                    txt_iban8.Text = dataTable.Rows[0]["IBAN8"].ToString();
-                    lb_view_iban_cert.Attributes.Add("fileId", dataTable.Rows[0]["IBAN_FILE"].ToString());
-                    lb_view_iban_cert.Visible = true;
-
-                }
-                else
-                {
-                    txt_iban1.Text = "";
-                    txt_iban2.Text = "";
-                    txt_iban3.Text = "";
-                    txt_iban4.Text = "";
-                    txt_iban5.Text = "";
-                    txt_iban6.Text = "";
-                    txt_iban7.Text = "";
-                    txt_iban8.Text = "";
-                    lb_view_iban_cert.Attributes.Add("fileId", "");
-                    lb_view_iban_cert.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-        public void BindWaterCertInfo(string waterCertId)
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
-                OracleConnection oracleConnection = new OracleConnection
-                {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["FOODERSS_PRODConnString"].ConnectionString
-                };
-                OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select * from USER_WATER_CERT where ID=:WATER_CERT_ID";
-                oracleCommand.CommandType = CommandType.Text;
-                OracleParameter oracleParameter = new OracleParameter("WATER_CERT_ID", waterCertId);
-                oracleCommand.Parameters.Add(oracleParameter);
-                OracleDataAdapter oracleDataAdapter = new OracleDataAdapter(oracleCommand);
-                oracleDataAdapter.Fill(dataTable);
-                if (dataTable.Rows.Count > 0)
-                {
-                    lb_view_water_cert.Attributes.Add("fileId", dataTable.Rows[0]["CERT_FILE"].ToString());
-                    lb_view_water_cert.Visible = true;
-                }
-                else
-                {
-                    lb_view_water_cert.Attributes.Add("fileId", "");
-                    lb_view_water_cert.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-        protected void lb_view_iban_cert_Click(object sender, EventArgs e)
-        {
-            string url = lb_view_iban_cert.Attributes["fileId"];
-            OpenPopUpPage(url);
-        }
-        private void OpenPopUpPage(string url)
-        {
-            if (!(string.IsNullOrEmpty(url)))
-            {
-                ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('" + "https://dotnet.mme.gov.qa/AttachmentsDownloadManager/GetAttachmentProd?DocID=" + url + "');", true);
-            }
-            else
-            {
-                lbl_message.Text = "الملف غير مرفق";
-            }
-
-        }
-        protected void lb_view_water_cert_Click(object sender, EventArgs e)
-        {
-            string url = lb_view_water_cert.Attributes["fileId"];
-            OpenPopUpPage(url);
-        }
-        protected void lb_save_iban_Click(object sender, EventArgs e)
-        {
-           // SaveBankInfo(Session["BankProfileId"].ToString(), Session["EmpUserName"].ToString(), txt_iban1.Text, txt_iban2.Text, txt_iban3.Text, txt_iban4.Text, txt_iban5.Text, txt_iban6.Text, txt_iban7.Text, txt_iban8.Text);
-        }
-        public void SaveBankInfo(string Id, string user, string IBAN1, string IBAN2, string IBAN3, string IBAN4, string IBAN5, string IBAN6, string IBAN7, string IBAN8)
-        {
-            try
-            {
-                DataTable dataTable = new DataTable();
-                OracleConnection oracleConnection = new OracleConnection
-                {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["FOODERSS_PRODConnString"].ConnectionString
-                };
-                OracleCommand oracleCommand = new OracleCommand();
-                oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = @"UPDATE  USER_BANK_INFO SET IBAN1='" + IBAN1 + "',IBAN2='" + IBAN2 + "',IBAN3='" + IBAN3 + "',IBAN4='" + IBAN4 + "',IBAN5='" + IBAN5 + "',IBAN6='" + IBAN6 + "',IBAN7='" + IBAN7 + "',IBAN8='" + IBAN8 + "',UPDATED_BY='"+user+"',UPDATED_DATE=SYSDATE WHERE ID=" + Id;
-                oracleCommand.CommandType = CommandType.Text;
-                oracleConnection.Open();
-                oracleCommand.ExecuteNonQuery();
-                oracleConnection.Close();
-
-                lbl_message.Text = "تم الحفظ بنجاح";
-            }
-            catch (Exception ex)
-            {
-                lbl_message.Text = "جدث خطأ فني, يرجى المحاولة في وقت اخر";
-            }
-        }
-        protected void btn_underReview_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/backend/requests.aspx");
-        }
-        protected void btn_underProcess_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/backend/process.aspx");
         }
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
             ASPxGridView grid = sender as ASPxGridView;
             grid.DataSource = GetAllRequestUnderReview();
-        }
-        protected void btn_allRequests_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/backend/allRequests.aspx");
         }
         protected void GetOwnershipsData(string UserQid)
         {
@@ -291,12 +144,8 @@ namespace FooderSupportService.backend
             TableCell tableCell3 = new TableCell { Text = "عدد الابار", BorderWidth = 1 };
             TableCell tableCell4 = new TableCell { Text = "صلاحية المزرعة", BorderWidth = 1 };
             TableCell tableCell5 = new TableCell { Text = "تاريخ اخر حصر", BorderWidth = 1 };
-            TableCell tableCell6 = new TableCell { Text = "ابل", BorderWidth = 1 };
-            TableCell tableCell7 = new TableCell { Text = "ابقار", BorderWidth = 1 };
-            TableCell tableCell8 = new TableCell { Text = "ضان", BorderWidth = 1 };
-            TableCell tableCell9 = new TableCell { Text = "ماعز", BorderWidth = 1 };
-            TableCell tableCell10 = new TableCell { Text = "خيول", BorderWidth = 1 };
-            TableCell tableCell11 = new TableCell { Text = "غزلان", BorderWidth = 1 };
+            TableCell tableCell6 = new TableCell { Text = "ضأن", BorderWidth = 1 };
+            
 
             TableRow trHeader = new TableRow();
             trHeader.Cells.Add(tableCell0);
@@ -306,11 +155,7 @@ namespace FooderSupportService.backend
             trHeader.Cells.Add(tableCell4);
             trHeader.Cells.Add(tableCell5);
             trHeader.Cells.Add(tableCell6);
-            trHeader.Cells.Add(tableCell7);
-            trHeader.Cells.Add(tableCell8);
-            trHeader.Cells.Add(tableCell9);
-            trHeader.Cells.Add(tableCell10);
-            trHeader.Cells.Add(tableCell11);
+           
 
             tbl_ownerships.Rows.Add(trHeader);
 
@@ -346,12 +191,7 @@ namespace FooderSupportService.backend
                 TableCell tableCell_Location = new TableCell();
                 TableCell tableCell_LastNumbring = new TableCell();
                 TableCell tableCell_Notes = new TableCell();
-                //TableCell tcCamels_cont = new TableCell() { Text = curOwnership.Camels.ToString() };
-               // TableCell tcCows_cont = new TableCell() { Text = curOwnership.Cows.ToString() };
-                //TableCell tcGoats_cont = new TableCell() { Text = curOwnership.Goats.ToString() };
                 TableCell tcSheeps_cont = new TableCell() { Text = curOwnership.Sheeps.ToString() };
-              //  TableCell tcHorss_cont = new TableCell() { Text = curOwnership.Horses.ToString() };
-               // TableCell tcGazals_cont = new TableCell() { Text = curOwnership.GAZAL.ToString() };
 
                 tableCell_OwnershipId.Text = curOwnership.OWNERSHIP_ID.ToString();
                 tableCell_OwnershipType.Text = curOwnership.TYPE;
@@ -364,12 +204,7 @@ namespace FooderSupportService.backend
                 tableRow.Cells.Add(tableCell_Wells);
                 tableRow.Cells.Add(tableCell_FarmExpDate);
                 tableRow.Cells.Add(tableCell_LastNumbring);
-                //tableRow.Cells.Add(tcCamels_cont);
-                //tableRow.Cells.Add(tcCows_cont);
                 tableRow.Cells.Add(tcSheeps_cont);
-                //tableRow.Cells.Add(tcGoats_cont);
-                //tableRow.Cells.Add(tcHorss_cont);
-                //tableRow.Cells.Add(tcGazals_cont);
                 tbl_ownerships.Rows.Add(tableRow);
             }
         }
@@ -467,9 +302,29 @@ namespace FooderSupportService.backend
             }
             return farm;
         }
-        protected void btn_underAuditing_Click(object sender, EventArgs e)
+        protected void rad_lst_fooders_qty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("~/backend/auditingRequests.aspx");
+            int TotalRequestSheeps = Convert.ToInt32(Session["selectedRequestSheeps"]);
+            int GrassBagSizeKg = 30;
+            int ProteinBagSizeKg = 50;
+            int GrassFooderPerLivestockKg = int.Parse(rad_lst_fooders_qty.SelectedValue);
+            int ProteinFooderPerLivestockKg = int.Parse(rad_lst_fooders_qty.SelectedValue);
+            int TotalGrassFooderKg = TotalRequestSheeps * GrassFooderPerLivestockKg;
+            int TotalProteinFooderKg = TotalRequestSheeps * ProteinFooderPerLivestockKg;
+            decimal TotalGrassFooderBag =Math.Round(Convert.ToDecimal(TotalGrassFooderKg) / Convert.ToDecimal(GrassBagSizeKg));
+            decimal TotalProteinFooderBag = Math.Round(Convert.ToDecimal(TotalProteinFooderKg)/ Convert.ToDecimal(ProteinBagSizeKg));
+            lbl_TotalGrassFooderKg.Text = TotalGrassFooderKg.ToString();
+            lbl_TotalProteinFooderKg.Text = TotalProteinFooderKg.ToString();
+            lbl_TotalGrassFooderBag.Text = TotalGrassFooderBag.ToString();
+            lbl_TotalProteinFooderBag.Text = TotalProteinFooderBag.ToString();
+        }
+        protected void btn_allRequests_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/backend/allRequests.aspx");
+        }
+        protected void btn_underReview_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/backend/officer.aspx");
         }
     }
 }

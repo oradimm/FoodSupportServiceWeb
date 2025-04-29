@@ -19,14 +19,26 @@ namespace FooderSupportService.backend
         }
         protected void btn_sign_in_Click(object sender, EventArgs e)
         {
-            List<string> users = GetAllUsers();
-            bool isAuthenticated = Authenticate(txt_user_name.Text, txt_password.Text);
-            if (users.Contains(txt_user_name.Text))
+            BackUserObj user = GetUserData(txt_user_name.Text);
+            if (user != null)
             {
+                bool isAuthenticated = Authenticate(user.UserQid, txt_password.Text);
                 if (isAuthenticated)
                 {
-                    Session["EmpUserName"] = txt_user_name.Text;
-                    Response.Redirect("~/backend/requests.aspx");
+                    Session["backUserObj"] = user;
+                    switch (user.UserRole)
+                    {
+                        case "officer": Response.Redirect("~/backend/officer.aspx");
+                            break;
+                        case "sectionHead":
+                            Response.Redirect("~/backend/sectionHead.aspx");
+                            break;
+                        case "companyOfficer":
+                            Response.Redirect("~/backend/companyOfficer.aspx");
+                            break;
+                        default: lbl_error_msg.Text = "لا يوجد لديك الصلاحيات الازمة للدخول";
+                            break;
+                    }
                 }
                 else
                 {
@@ -37,7 +49,7 @@ namespace FooderSupportService.backend
             {
                 lbl_error_msg.Text = "لا يوجد لديك الصلاحيات الازمة للدخول";
             }
-
+          
         }
         public static bool Authenticate(string userName, string password)
         {
@@ -51,9 +63,9 @@ namespace FooderSupportService.backend
             catch (DirectoryServicesCOMException ex) { }
             return isAuthenticated;
         }
-        protected List<string> GetAllUsers()
+        protected BackUserObj GetUserData(string userQid)
         {
-            List<string> users = new List<string>();
+            BackUserObj user = new BackUserObj();
             DataTable dataTable = new DataTable();
             try
             {
@@ -63,13 +75,20 @@ namespace FooderSupportService.backend
                 };
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select USER_NAME from BACK_UESRS";
+                oracleCommand.CommandText = "select ID,USER_QID,USER_ROLE from BACK_USER WHERE IS_ACTIVE=1";
                 oracleCommand.CommandType = CommandType.Text;
                 OracleDataAdapter oracleDataAdapter = new OracleDataAdapter(oracleCommand);
                 oracleDataAdapter.Fill(dataTable);
-                foreach (DataRow dataRow in dataTable.Rows)
+                if (dataTable.Rows.Count > 0)
                 {
-                    users.Add(dataRow[0].ToString());
+                    user.Id = Convert.ToInt32(dataTable.Rows[0]["ID"]);
+                    user.UserQid = Convert.ToString(dataTable.Rows[0]["USER_QID"]);
+                    user.UserRole = Convert.ToString(dataTable.Rows[0]["USER_ROLE"]);
+                    return user;
+                }
+                else
+                {
+                    return null;
                 }
 
             }
@@ -77,7 +96,7 @@ namespace FooderSupportService.backend
             {
                 return null;
             }
-            return users;
+            
         }
     }
 }

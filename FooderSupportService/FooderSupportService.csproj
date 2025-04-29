@@ -99,7 +99,7 @@
     <Content Include="backend\reports\FinanceReport.aspx" />
     <Content Include="backend\reports\CommiteeReport.aspx" />
     <Content Include="backend\auditingRequests.aspx" />
-    <Content Include="backend\requests.aspx" />
+    <Content Include="backend\officer.aspx" />
     <Content Include="Connected Services\AttachmentsWSProd\WaterSupportService.AttachmentsWSProd.AttachedDocDeleteResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -310,12 +310,13 @@
     <Compile Include="backend\auditingRequests.aspx.designer.cs">
       <DependentUpon>auditingRequests.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backend\requests.aspx.cs">
-      <DependentUpon>requests.aspx</DependentUpon>
+    <Compile Include="backend\BackUserObj.cs" />
+    <Compile Include="backend\officer.aspx.cs">
+      <DependentUpon>officer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backend\requests.aspx.designer.cs">
-      <DependentUpon>requests.aspx</DependentUpon>
+    <Compile Include="backend\officer.aspx.designer.cs">
+      <DependentUpon>officer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\AttachmentsWSProd\Reference.cs">
       <AutoGen>True</AutoGen>

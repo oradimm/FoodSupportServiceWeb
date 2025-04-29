@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/backend/Backend.Master" AutoEventWireup="true" CodeBehind="requests.aspx.cs" Inherits="FooderSupportService.backend.requests" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/backend/Backend.Master" AutoEventWireup="true" CodeBehind="officer.aspx.cs" Inherits="FooderSupportService.backend.officer" %>
 
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
@@ -8,15 +8,12 @@
     <div class="centered-div">
         <div class="table-container">
             <div class="rtl-div bold">
-                <asp:Button ID="btn_underReview" CssClass="red-button" Font-Bold="true" Font-Underline="true" runat="server" Text="قيد المراجعة" Visible="true" OnClick="btn_underReview_Click" />
-                <asp:Button ID="btn_underAuditing" CssClass="red-button" runat="server" Text="قيد التدقيق" Visible="true" OnClick="btn_underAuditing_Click"/>
-                <asp:Button ID="btn_underProcess" CssClass="red-button" runat="server" Text="قيد الإجراء" Visible="true" OnClick="btn_underProcess_Click" />
+                <asp:Button ID="btn_underReview" CssClass="red-button" Font-Bold="true" Font-Underline="true" runat="server" Text="طلبات تحت المراجعة" Visible="true" OnClick="btn_underReview_Click" />
                 <asp:Button ID="btn_allRequests" CssClass="red-button" runat="server" Text="جميع الطلبات" Visible="true" OnClick="btn_allRequests_Click" />
             </div>
 
         </div>
     </div>
-
     <div class="centered-div">
         <div class="table-container">
             <div class="rtl-div bold">
@@ -25,12 +22,10 @@
             <div style="text-align: center;">
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server" EnableCallBacks="false" Theme="Default" Width="1400px" KeyFieldName="REQ_ID" AutoGenerateColumns="False" RightToLeft="True" OnSelectionChanged="ASPxGridView1_SelectionChanged" OnDataBinding="ASPxGridView1_DataBinding">
                     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True" ProcessSelectionChangedOnServer="true" />
-                    <Settings ShowFilterRow="True" ShowFooter="true"  />
-                    
+                    <Settings ShowFilterRow="True" ShowFooter="true" />
+
                     <TotalSummary>
                         <dx:ASPxSummaryItem SummaryType="Count" FieldName="REF" ShowInColumn="REF" />
-                        <dx:ASPxSummaryItem SummaryType="Sum" FieldName="TOTAL_WATER" ShowInColumn="TOTAL_WATER" />
-                        <dx:ASPxSummaryItem SummaryType="Sum" FieldName="TOTAL_SUPPORT" ShowInColumn="TOTAL_SUPPORT" />
                     </TotalSummary>
                     <Columns>
                         <dx:GridViewDataColumn Caption="رقم المرجع" FieldName="REF"></dx:GridViewDataColumn>
@@ -38,20 +33,12 @@
                             <PropertiesDateEdit DisplayFormatString="dd-MM-yyyy">
                             </PropertiesDateEdit>
                         </dx:GridViewDataDateColumn>
+                        <dx:GridViewDataColumn Caption="مصدر الطلب" FieldName="REQUEST_SOURCE"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="الرقم الشخصي" FieldName="QID"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="الأسم" FieldName="NAME" Width="300PX"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="رقم الجوال" FieldName="MOBILE"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="ابل" FieldName="CAMELS"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="ابقار" FieldName="COWS"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="ضان" FieldName="SHEEPS"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="ماعز" FieldName="GOATS"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="خيول" FieldName="HORSES"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="غزلان" FieldName="GAZALS"></dx:GridViewDataColumn>
 
-                        <dx:GridViewDataColumn Caption="حجم المياه - جالون" FieldName="TOTAL_WATER"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn Caption="اجمالي الدعم" FieldName="TOTAL_SUPPORT"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn FieldName="BANK_PROFILE" Visible="false"></dx:GridViewDataColumn>
-                        <dx:GridViewDataColumn FieldName="WATER_CERT_PROFILE" Visible="false"></dx:GridViewDataColumn>
+                        <dx:GridViewDataColumn Caption="إجمالي عدد الأغنام (االضأن)" FieldName="SHEEPS"></dx:GridViewDataColumn>
                     </Columns>
                 </dx:ASPxGridView>
             </div>
@@ -84,65 +71,78 @@
             </div>
         </div>
         <div class="centered-div">
-            <div class="table-container">
+            <div class="table-container" style="font-size:large">
                 <div class="rtl-div bold" style="width: 1377px;">
                     إجراء الطلب
                 </div>
+                <table>
+                    <tr>
+                        <td>كمية الأعلاف المستحقة (كيلو جرام / رأس ضأن):
+                        </td>
+                        <td>
+                            <asp:RadioButtonList ID="rad_lst_fooders_qty" runat="server" RepeatDirection="Horizontal"  AutoPostBack="true" OnSelectedIndexChanged="rad_lst_fooders_qty_SelectedIndexChanged">
+                                <asp:ListItem Text="15" Value="15"></asp:ListItem>
+                                <asp:ListItem Text="20" Value="20"></asp:ListItem>
+                                <asp:ListItem Text="25" Value="25"></asp:ListItem>
+                            </asp:RadioButtonList>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>إجمالي الأعلاف المستحقة (كيلو جرام)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>مركز 16 بروتين:
+                             <asp:Label ID="lbl_TotalProteinFooderKg" runat="server" Text="225" Font-Bold="true"></asp:Label>
+                        </td>
+                      
+                        <td>أعلاف عشبية:
+                             <asp:Label ID="lbl_TotalGrassFooderKg" runat="server" Text="225" Font-Bold="true"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+                 <table>
+                    <tr>
+                        <td>إجمالي الأعلاف المستحقة (كيس)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>مركز 16 بروتين:
+                             <asp:Label ID="lbl_TotalProteinFooderBag" runat="server" Text="225" Font-Bold="true"></asp:Label>
+                        </td>
+                      
+                        <td>أعلاف عشبية:
+                             <asp:Label ID="lbl_TotalGrassFooderBag" runat="server" Text="225" Font-Bold="true"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
                 <div style="text-align: right;">
                     <table>
-                        <tr>
-                            <td>شهادة الـ IBAN :</td>
-                            <td>
-                                <asp:LinkButton ID="lb_view_iban_cert" runat="server" OnClick="lb_view_iban_cert_Click">عرض</asp:LinkButton></td>
-                        </tr>
-                        <tr>
-                            <td>شهادة تحلية المياه:</td>
-                            <td>
-                                <asp:LinkButton ID="lb_view_water_cert" runat="server" OnClick="lb_view_water_cert_Click">عرض</asp:LinkButton></td>
-                        </tr>
-                        <tr>
-                            <td>رقم الحساب:</td>
-                            <td>
-                                <asp:TextBox ID="txt_iban8" Enabled="false" runat="server" Width="50px" MaxLength="5"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban7" Enabled="false" runat="server" Width="40px" MaxLength="4"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban6" Enabled="false" runat="server" Width="40px" MaxLength="4"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban5" Enabled="false" runat="server" Width="40px" MaxLength="4"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban4" Enabled="false" runat="server" Width="40px" MaxLength="4"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban3" Enabled="false" runat="server" Width="40px" MaxLength="4"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban2" Enabled="false" runat="server" Width="25px" MaxLength="2"></asp:TextBox>
-                                -
-                            <asp:TextBox ID="txt_iban1" Enabled="false" runat="server" Width="25px" MaxLength="2"></asp:TextBox></td>
-                            <td>
-                                <asp:LinkButton ID="lb_save_iban" Enabled="false" runat="server" OnClick="lb_save_iban_Click">حفظ</asp:LinkButton></td>
-                        </tr>
+
                         <tr>
                             <td>الإجراء:</td>
 
                             <td>
-                                <asp:RadioButtonList ID="radBtnList_Action" runat="server" CssClass="radioButtonList" OnSelectedIndexChanged="radBtnList_Action_SelectedIndexChanged" AutoPostBack="true">
+                                <asp:RadioButtonList ID="radBtnList_Action" runat="server" CssClass="radioButtonList" RepeatDirection="Horizontal"  AutoPostBack="true">
                                     <asp:ListItem Value="1" Selected="True">موافق عليه</asp:ListItem>
                                     <asp:ListItem Value="2">رفض</asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                         </tr>
                     </table>
-                    <asp:Panel ID="panel_reject_reason" runat="server" Visible="false">
+                   
                         <table>
                             <tr>
-                                <td>سبب الرفض</td>
+                                <td>ملاحظات</td>
                                 <td>
                                     <asp:TextBox TextMode="MultiLine" ID="txt_reject_reson" runat="server" Width="500px" Height="100px"></asp:TextBox>
 
                                 </td>
                             </tr>
                         </table>
-                    </asp:Panel>
+                   
                     <table>
                         <tr>
 
