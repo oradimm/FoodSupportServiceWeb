@@ -31,10 +31,10 @@ namespace FooderSupportService.backend
                         case "officer": Response.Redirect("~/backend/officer.aspx");
                             break;
                         case "sectionHead":
-                            Response.Redirect("~/backend/sectionHead.aspx");
+                            Response.Redirect("~/backend/section_head.aspx");
                             break;
                         case "companyOfficer":
-                            Response.Redirect("~/backend/companyOfficer.aspx");
+                            Response.Redirect("~/backend/company_officer.aspx");
                             break;
                         default: lbl_error_msg.Text = "لا يوجد لديك الصلاحيات الازمة للدخول";
                             break;

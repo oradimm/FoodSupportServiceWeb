@@ -88,17 +88,15 @@
     <Content Include="Apply.aspx" />
     <Content Include="Assets\css\StyleSheetReferance.css" />
     <Content Include="Assets\images\MME-logo.png" />
-    <Content Include="backend\meetings.aspx" />
     <Content Include="backend\Backend.Master" />
+    <Content Include="backend\section_head.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\AttachmentsWSProd\AttachmentsServiceProd.wsdl" />
     <Content Include="backend\login.aspx" />
     <Content Include="backend\allRequests.aspx" />
-    <Content Include="backend\process.aspx" />
     <Content Include="backend\reports\CommitteeReportAnix.aspx" />
     <Content Include="backend\reports\FinanceReport.aspx" />
     <Content Include="backend\reports\CommiteeReport.aspx" />
-    <Content Include="backend\auditingRequests.aspx" />
     <Content Include="backend\officer.aspx" />
     <Content Include="Connected Services\AttachmentsWSProd\WaterSupportService.AttachmentsWSProd.AttachedDocDeleteResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -247,13 +245,6 @@
     <Compile Include="Apply.aspx.designer.cs">
       <DependentUpon>Apply.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backend\meetings.aspx.cs">
-      <DependentUpon>meetings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backend\meetings.aspx.designer.cs">
-      <DependentUpon>meetings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="backend\Backend.Master.cs">
       <DependentUpon>Backend.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,12 +266,12 @@
     <Compile Include="backend\allRequests.aspx.designer.cs">
       <DependentUpon>allRequests.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backend\process.aspx.cs">
-      <DependentUpon>process.aspx</DependentUpon>
+    <Compile Include="backend\section_head.aspx.cs">
+      <DependentUpon>section_head.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backend\process.aspx.designer.cs">
-      <DependentUpon>process.aspx</DependentUpon>
+    <Compile Include="backend\section_head.aspx.designer.cs">
+      <DependentUpon>section_head.aspx</DependentUpon>
     </Compile>
     <Compile Include="backend\reports\CommitteeReportAnix.aspx.cs">
       <DependentUpon>CommitteeReportAnix.aspx</DependentUpon>
@@ -302,13 +293,6 @@
     </Compile>
     <Compile Include="backend\reports\CommiteeReport.aspx.designer.cs">
       <DependentUpon>CommiteeReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="backend\auditingRequests.aspx.cs">
-      <DependentUpon>auditingRequests.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backend\auditingRequests.aspx.designer.cs">
-      <DependentUpon>auditingRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="backend\BackUserObj.cs" />
     <Compile Include="backend\officer.aspx.cs">
