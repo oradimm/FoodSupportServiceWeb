@@ -60,8 +60,10 @@ namespace FooderSupportService
                         ReqDate = Convert.ToDateTime(dataRow["REQ_DATE"]),
                         UserProfile = Convert.ToInt32(dataRow["USER_PROFILE"]),
                         Sheeps = Convert.ToInt32(dataRow["SHEEPS"]),
-                        ReviewNotes = Convert.ToString(dataRow["REVIEW_NOTES"]),
+                        ReviewNotes = Convert.ToString(dataRow["REVIEW_NOTES"]) + "\n"+Convert.ToString(dataRow["APPROVAL_NOTES"]),
                         ApprovalStatus = Convert.ToInt32(dataRow["APPROVAL_STATUS"]),
+                        ReviewStatus = Convert.ToInt32(dataRow["REVIEW_STATUS"]),
+                        DeliveryStatus = Convert.ToInt32(dataRow["DELIVERY_STATUS"]),
                     };
                     if (dataRow["TOTAL_GRASS_F_BAG"] != DBNull.Value)
                     {
@@ -130,9 +132,9 @@ namespace FooderSupportService
                         errorBox.Visible = true;
                         CanApply = false;
                     }
-                    if (requestObj.ApprovalStatus == 1 && requestObj.SupportEnd > DateTime.Today)
+                    if (requestObj.ApprovalStatus == 1 && requestObj.SupportEnd.Value.AddYears(1) > DateTime.Today)
                     {
-                        lbl_error_msg.Text = "*لديك بالفعل طلب موافق عليه, يمكنك تقديم طلب جدبد بتاريخ" + ":"+requestObj.SupportEnd.Value.AddDays(1).ToString("dd-MM-yyyy");
+                        lbl_error_msg.Text = "*لديك بالفعل طلب موافق عليه, يمكنك تقديم طلب جدبد بتاريخ" + ":"+requestObj.SupportEnd.Value.AddYears(1).ToString("dd-MM-yyyy");
                         btn_new_request.Enabled = false;
                         errorBox.Visible = true;
                         CanApply = false;
@@ -205,7 +207,7 @@ namespace FooderSupportService
                     tableRow.Cells.Add(tcEndDate);
 
                     TableCell tcStatus = new TableCell();
-                    tcStatus.Text = GetRequestStatus(requestObj.ReviewStatus, requestObj.ApprovalStatus);
+                    tcStatus.Text = GetRequestStatus(requestObj.ReviewStatus, requestObj.ApprovalStatus, requestObj.DeliveryStatus);
                     tableRow.Cells.Add(tcStatus);
 
                     TableCell tcNotes = new TableCell();
@@ -246,31 +248,38 @@ namespace FooderSupportService
         {
             Response.Redirect("~/Apply.aspx");
         }
-        protected string GetRequestStatus(int ReviewStatus, int ApprovalStatus)
+        protected string GetRequestStatus(int ReviewStatus, int ApprovalStatus, int DeliveryStatus)
         {
             string reviewText = "";
-            if (ApprovalStatus == 0)
+            if (DeliveryStatus == 0)
             {
-                if (ReviewStatus == 0)
+                if (ApprovalStatus == 0)
                 {
-                    reviewText = "تحت المراجعة";
+                    if (ReviewStatus == 0)
+                    {
+                        reviewText = "تحت المراجعة";
+                    }
+                    else if (ReviewStatus == 1)
+                    {
+                        reviewText = "تحت الإجراء";
+                    }
+                    else if (ReviewStatus == 2)
+                    {
+                        reviewText = "مرفوض";
+                    }
                 }
-                else if (ReviewStatus == 1)
+                else if (ApprovalStatus == 1)
                 {
-                    reviewText = "تحت الإجراء";
+                    reviewText = "جاهز للتسليم";
                 }
-                else if (ReviewStatus == 2)
+                else if (ApprovalStatus == 2)
                 {
                     reviewText = "مرفوض";
                 }
             }
-            else if (ApprovalStatus == 1)
+            else
             {
-                reviewText = "موافق عليه";
-            }
-            else if (ApprovalStatus == 2)
-            {
-                reviewText = "مرفوض";
+                reviewText = "تم التسليم";
             }
             return reviewText;
         }

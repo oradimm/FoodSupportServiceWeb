@@ -30,7 +30,7 @@ namespace FooderSupportService
         public int GrassBagSizeKg { set; get; }
         public int ProteinBagSizeKg { set; get; }
         public string RequestSource { set; get; }
-        public DateTime DeliveryStatus { set; get; }
+        public int DeliveryStatus { set; get; }
         public int DeliveredBy { set; get; }
         public DateTime DeliveredDate { set; get; }
         public int RelatedApplicationId { set; get; }

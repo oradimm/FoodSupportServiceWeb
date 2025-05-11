@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace FooderSupportService.backend
 {
-    public partial class allRequests : System.Web.UI.Page
+    public partial class company_report : System.Web.UI.Page
     {
         
         protected void Page_Load(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace FooderSupportService.backend
                 };
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select * from VW_ALL_REQUESTS";
+                oracleCommand.CommandText = "select * from VW_COMPANY_REPORT";
                 oracleCommand.CommandType = CommandType.Text;
                 OracleDataAdapter oracleDataAdapter = new OracleDataAdapter(oracleCommand);
                 oracleDataAdapter.Fill(dataTable);
@@ -53,7 +53,7 @@ namespace FooderSupportService.backend
         
         protected void btn_underReview_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/backend/officer.aspx");
+            Response.Redirect("~/backend/company_officer.aspx");
         }
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace FooderSupportService.backend
         }
         protected void btn_allRequests_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/backend/allRequests.aspx");
+            Response.Redirect("~/backend/company_report.aspx");
         }
         protected void btn_view_iban_Init(object sender, EventArgs e)
         {

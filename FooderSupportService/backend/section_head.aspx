@@ -43,6 +43,7 @@
                         <dx:GridViewDataColumn Caption="إجمالي عدد الأغنام (االضأن)" FieldName="SHEEPS"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="مركز 16 بروتين (كيس)" FieldName="TOTAL_PROTEIN_F_BAG"></dx:GridViewDataColumn>
                         <dx:GridViewDataColumn Caption="عشبية (كيس)" FieldName="TOTAL_GRASS_F_BAG"></dx:GridViewDataColumn>
+                          <dx:GridViewDataColumn Caption="ملاحظات" FieldName="REVIEW_NOTES"></dx:GridViewDataColumn>
                     </Columns>
                 </dx:ASPxGridView>
             </div>

@@ -11,7 +11,7 @@ namespace FooderSupportService.backend
 {
 
 
-    public partial class allRequests
+    public partial class company_report
     {
 
         /// <summary>

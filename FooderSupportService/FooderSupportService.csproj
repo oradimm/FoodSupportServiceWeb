@@ -88,6 +88,7 @@
     <Content Include="Apply.aspx" />
     <Content Include="Assets\css\StyleSheetReferance.css" />
     <Content Include="Assets\images\MME-logo.png" />
+    <Content Include="backend\company_report.aspx" />
     <Content Include="backend\Backend.Master" />
     <Content Include="backend\company_officer.aspx" />
     <Content Include="backend\section_head.aspx" />
@@ -245,6 +246,13 @@
     </Compile>
     <Compile Include="Apply.aspx.designer.cs">
       <DependentUpon>Apply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backend\company_report.aspx.cs">
+      <DependentUpon>company_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backend\company_report.aspx.designer.cs">
+      <DependentUpon>company_report.aspx</DependentUpon>
     </Compile>
     <Compile Include="backend\Backend.Master.cs">
       <DependentUpon>Backend.Master</DependentUpon>
