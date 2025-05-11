@@ -14,9 +14,14 @@ namespace FooderSupportService.backend
 {
     public partial class allRequests : System.Web.UI.Page
     {
-        
+        BackUserObj backUserObj { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            backUserObj = (BackUserObj)Session["backUserObj"];
+            if ((backUserObj == null) || (backUserObj.UserRole != "officer"))
+            {
+                Response.Redirect("~/backend/login.aspx");
+            }
             if (!IsPostBack)
             {
                 GridBindData();

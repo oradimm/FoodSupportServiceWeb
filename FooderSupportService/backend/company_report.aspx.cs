@@ -14,10 +14,12 @@ namespace FooderSupportService.backend
 {
     public partial class company_report : System.Web.UI.Page
     {
-        
+        BackUserObj backUserObj { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            backUserObj = (BackUserObj)Session["backUserObj"];
+            if ((backUserObj == null) || (backUserObj.UserRole != "companyOfficer"))
+                if (!IsPostBack)
             {
                 GridBindData();
             }

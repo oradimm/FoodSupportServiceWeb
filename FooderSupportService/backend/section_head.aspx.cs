@@ -18,6 +18,10 @@ namespace FooderSupportService.backend
         protected void Page_Load(object sender, EventArgs e)
         {
             backUserObj = (BackUserObj)Session["backUserObj"];
+            if ((backUserObj == null) || (backUserObj.UserRole != "sectionHead"))
+            {
+                Response.Redirect("~/backend/login.aspx");
+            }
             if (!IsPostBack)
             {
                 GridDataBind();

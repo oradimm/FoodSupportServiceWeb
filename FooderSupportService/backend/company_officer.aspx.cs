@@ -19,7 +19,8 @@ namespace FooderSupportService.backend
         protected void Page_Load(object sender, EventArgs e)
         {
             backUserObj = (BackUserObj)Session["backUserObj"];
-            if (!IsPostBack)
+            if ((backUserObj == null) || (backUserObj.UserRole != "companyOfficer"))
+                if (!IsPostBack)
             {
                 GridDataBind();
             }

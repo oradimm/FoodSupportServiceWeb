@@ -19,8 +19,8 @@ namespace FooderSupportService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txt_qid.Text = "28840000698";
-            txt_mobile.Text = "74000797";  
+            //txt_qid.Text = "28840000698";
+            //txt_mobile.Text = "74000797";  
         }
         protected void btn_send_otp_Click(object sender, EventArgs e)
         {
@@ -32,9 +32,10 @@ namespace FooderSupportService
             if (CheckQidMobile(txt_qid.Text, txt_mobile.Text))
             {
                 string otp = CreateOTP(4);
-                txt_otp.Text = otp;
+                //txt_otp.Text = otp;
                 Session["otp"] = otp;
                 string smsBody = "رمز التحقق هو: "+otp;
+                UtilityHelper.SendSms(txt_mobile.Text, smsBody);
                 //UtilityHelper.SendSms(txt_mobile.Text, smsBody);
             }
             else
@@ -65,7 +66,7 @@ namespace FooderSupportService
                 if (userId != -1)
                 {
                     DateTime lastActivity = UtilityHelper.GetLastActivityForUser(userId);
-                    //if (lastActivity.AddMinutes(10) < DateTime.Now)
+                    if (lastActivity.AddMinutes(10) < DateTime.Now)
                     if (lastActivity.AddMinutes(0) < DateTime.Now)
                     {
                         Session["UserId"] = userId;
