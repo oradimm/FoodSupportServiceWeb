@@ -89,6 +89,7 @@
     <Content Include="Assets\css\StyleSheetReferance.css" />
     <Content Include="Assets\images\MME-logo.png" />
     <Content Include="backend\Backend.Master" />
+    <Content Include="backend\company_officer.aspx" />
     <Content Include="backend\section_head.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Connected Services\AttachmentsWSProd\AttachmentsServiceProd.wsdl" />
@@ -265,6 +266,13 @@
     </Compile>
     <Compile Include="backend\allRequests.aspx.designer.cs">
       <DependentUpon>allRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backend\company_officer.aspx.cs">
+      <DependentUpon>company_officer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backend\company_officer.aspx.designer.cs">
+      <DependentUpon>company_officer.aspx</DependentUpon>
     </Compile>
     <Compile Include="backend\section_head.aspx.cs">
       <DependentUpon>section_head.aspx</DependentUpon>

@@ -75,7 +75,7 @@ namespace FooderSupportService.backend
                 };
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select ID,USER_QID,USER_ROLE from BACK_USER WHERE IS_ACTIVE=1";
+                oracleCommand.CommandText = "select ID,USER_QID,USER_ROLE from BACK_USER WHERE IS_ACTIVE=1 and USER_QID='"+ userQid + "'";
                 oracleCommand.CommandType = CommandType.Text;
                 OracleDataAdapter oracleDataAdapter = new OracleDataAdapter(oracleCommand);
                 oracleDataAdapter.Fill(dataTable);

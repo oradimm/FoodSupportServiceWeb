@@ -74,7 +74,7 @@ namespace FooderSupportService.backend
                 approvalStatus = "1";
                 UtilityHelper.SendSms(mobile, " عزيزي المربي تم الموافقة طلب خدمة دعم الأعلاف رقم: \n"+ requestRef +"\n"+
                     "يرجى التوجه لإستلام الأعلاف من مركز الصرف في الموقع التالي: " +
-                    "\n"+ "https://maps.app.goo.gl/NCQ7ANL2UJkNqw1m7" +
+                    "\n"+ "https://maps.app.goo.gl/tgHEbcoFUKJAu1UK9" +
                     "\nوذلك قبل تاريخ نهاية الأستحقاق" + support_end.ToString("MM-dd-yyyy"));
             }
             DataTable dataTable = new DataTable();
