@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CommiteeReport.aspx.cs" Inherits="WaterSupportService.backend.reports.CommiteeReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CommiteeReport.aspx.cs" Inherits="FooderSupportService.backend.reports.CommiteeReport" %>
 
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 

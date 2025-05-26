@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="UploadAttachmentFileWithPropertiesResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>WaterSupportService.AttachmentsWSProd.UploadAttachmentFileWithPropertiesResponse, Connected Services.AttachmentsWSProd.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>FooderSupportService.AttachmentsWSProd.UploadAttachmentFileWithPropertiesResponse, Connected Services.AttachmentsWSProd.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

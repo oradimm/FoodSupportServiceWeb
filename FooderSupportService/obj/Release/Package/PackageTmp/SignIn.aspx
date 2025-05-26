@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="WaterSupportService.SignIn" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="FooderSupportService.SignIn" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@
 
             </div>
             <div class="box">
-                <span style="font-weight: bold;">خدمة دعم المياه لمربين الثروة الحيوانية</span>
+                <span style="font-weight: bold;">خدمة دعم الأعلاف لمربين الثروة الحيوانية</span>
                 <br />
                 <span>ادارة الثروة الحيوانية</span>
                 <br />
@@ -76,7 +76,7 @@
         <div class="centered-div">
             <div class="table-container">
                 <div class="rtl-div" style="text-align: center;">
-                    <span>ملكية فكرية 2023</span>
+                    <span>ملكية فكرية 2025</span>
                     <br />
                     <span>جميع الحقوق محفوظة لوزارة البلدية - دولة قطر</span>
                     <br />

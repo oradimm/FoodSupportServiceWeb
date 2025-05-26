@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WaterSupportService.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="FooderSupportService.Site" %>
 
 <!DOCTYPE html>
 
@@ -23,18 +23,12 @@
                             <asp:LinkButton ID="lb_signOut" runat="server" OnClick="lb_signOut_Click">تسجيل الخروج</asp:LinkButton>
                         </div>
                     </div>
-                    <div class="icon-text">
-                        <div>
-                            <i class="fa fa-user icon"></i>
-                        </div>
-                        <div>
-                            <asp:HyperLink ID="hl_pp" runat="server" NavigateUrl="~/Profile.aspx">الملف الشخصي</asp:HyperLink></div>
-                    </div>
+                  
                 </div>
 
             </div>
             <div class="box">
-                <span style="font-weight: bold;">خدمة دعم المياه لمربين الثروة الحيوانية</span>
+                <span style="font-weight: bold;">خدمة دعم الأعلاف لمربين الثروة الحيوانية</span>
                 <br />
                 <span>ادارة الثروة الحيوانية</span>
                 <br />
@@ -53,7 +47,7 @@
           <div class="centered-div">
             <div class="table-container">
                 <div class="rtl-div" style="text-align: center;">
-                    <span>ملكية فكرية 2023</span>
+                    <span>ملكية فكرية 2025</span>
                     <br />
                     <span>جميع الحقوق محفوظة لوزارة البلدية - دولة قطر</span>
                     <br />

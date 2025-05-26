@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FinanceReport.aspx.cs" Inherits="WaterSupportService.backend.reports.FinanceReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FinanceReport.aspx.cs" Inherits="FooderSupportService.backend.reports.FinanceReport" %>
 
 <!DOCTYPE html>
 

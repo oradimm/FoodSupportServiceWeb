@@ -66,7 +66,7 @@ namespace FooderSupportService
                 if (userId != -1)
                 {
                     DateTime lastActivity = UtilityHelper.GetLastActivityForUser(userId);
-                    if (lastActivity.AddMinutes(10) < DateTime.Now)
+                    //if (lastActivity.AddMinutes(10) < DateTime.Now)
                     if (lastActivity.AddMinutes(0) < DateTime.Now)
                     {
                         Session["UserId"] = userId;

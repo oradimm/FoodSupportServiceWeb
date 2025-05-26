@@ -207,9 +207,9 @@ C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\bin\de\DevExpress
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\bin\es\DevExpress.Office.v12.2.Core.resources.dll
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\bin\ja\DevExpress.Office.v12.2.Core.resources.dll
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\bin\ru\DevExpress.Office.v12.2.Core.resources.dll
-C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\FooderSupportService.csproj.AssemblyReference.cache
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\WaterSupportService.dll.licenses
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\FooderSupportService.csproj.CoreCompileInputs.cache
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\FooderSupportService.csproj.CopyComplete
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\WaterSupportService.dll
 C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\WaterSupportService.pdb
+C:\final_mm\oradimm\FoodSupportServiceWeb\FooderSupportService\obj\Debug\FooderSupportService.csproj.AssemblyReference.cache
