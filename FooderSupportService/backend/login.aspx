@@ -17,7 +17,7 @@
 
             </div>
             <div class="box">
-                <span style="font-weight: bold;">خدمة دعم المياه لمربين الثروة الحيوانية</span>
+                <span style="font-weight: bold;">خدمة دعم الاعلاف لمربين الثروة الحيوانية</span>
                 <br />
                 <span>ادارة الثروة الحيوانية</span>
                 <br />

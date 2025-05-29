@@ -242,7 +242,7 @@ namespace FooderSupportService
                 };
                 OracleCommand oracleCommand = new OracleCommand();
                 oracleCommand = oracleConnection.CreateCommand();
-                oracleCommand.CommandText = "select * from WATER_SUPPORT_VW where CITIZEN_ID=:QID";
+                oracleCommand.CommandText = "select * from FODDER_SUPPORT_VW where CITIZEN_ID=:QID";
                 oracleCommand.CommandType = CommandType.Text;
                 OracleParameter oracleParameter = new OracleParameter("QID", UserQid);
                 oracleCommand.Parameters.Add(oracleParameter);

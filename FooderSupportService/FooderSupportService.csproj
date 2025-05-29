@@ -96,9 +96,6 @@
     <None Include="Connected Services\AttachmentsWSProd\AttachmentsServiceProd.wsdl" />
     <Content Include="backend\login.aspx" />
     <Content Include="backend\allRequests.aspx" />
-    <Content Include="backend\reports\CommitteeReportAnix.aspx" />
-    <Content Include="backend\reports\FinanceReport.aspx" />
-    <Content Include="backend\reports\CommiteeReport.aspx" />
     <Content Include="backend\officer.aspx" />
     <Content Include="Connected Services\AttachmentsWSProd\WaterSupportService.AttachmentsWSProd.AttachedDocDeleteResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -288,27 +285,6 @@
     </Compile>
     <Compile Include="backend\section_head.aspx.designer.cs">
       <DependentUpon>section_head.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="backend\reports\CommitteeReportAnix.aspx.cs">
-      <DependentUpon>CommitteeReportAnix.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backend\reports\CommitteeReportAnix.aspx.designer.cs">
-      <DependentUpon>CommitteeReportAnix.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="backend\reports\FinanceReport.aspx.cs">
-      <DependentUpon>FinanceReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backend\reports\FinanceReport.aspx.designer.cs">
-      <DependentUpon>FinanceReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="backend\reports\CommiteeReport.aspx.cs">
-      <DependentUpon>CommiteeReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="backend\reports\CommiteeReport.aspx.designer.cs">
-      <DependentUpon>CommiteeReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="backend\BackUserObj.cs" />
     <Compile Include="backend\officer.aspx.cs">
